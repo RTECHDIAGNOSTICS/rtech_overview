@@ -43,6 +43,40 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      Column(
+                        children: [
+                          RichText(
+      text: TextSpan(
+          text: "The easiest and reliable way to get your ",
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(fontWeight: FontWeight.bold),
+          children: [
+            TextSpan(
+              text: "TRUCK back on the road",
+              style: Theme.of(context).textTheme.headline5!.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold),
+            ),
+             TextSpan(
+              text: " back on the road",
+              style: Theme.of(context).textTheme.headline5!.copyWith(
+                  
+                  fontWeight: FontWeight.bold),
+            )
+          ]),
+    ),
+    const SizedBox(height: 10,),
+                           Text(
+          "Download the  Rtech app",
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(fontWeight: FontWeight.w600, fontSize: 20),
+        ),
+                        ],
+                      ),
                     ],
                   ) // for tablet view
                 : Column(

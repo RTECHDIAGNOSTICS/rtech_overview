@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:rtech_overview/screens/services_desktop_tablet.dart';
+import 'package:rtech_overview/shared/utils/app_colors.dart';
 import '../shared/components/nav_drawer/nav_drawer.dart';
 import '../shared/components/navbar/nav_bar_item.dart';
 import '../shared/components/navbar/nav_bar_logo.dart';
@@ -12,6 +13,7 @@ import 'about_screen.dart';
 import 'content/mobile_about_screen.dart';
 import 'content/mobile_services_screen.dart';
 import 'content/moblie_homePage.dart';
+
 class Home extends StatefulWidget {
   static String id = 'Home';
   const Home({Key? key}) : super(key: key);
@@ -72,6 +74,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
+        backgroundColor: AppColors.appBarBG,
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? const NavigationDrawer()
             : null,
@@ -86,9 +89,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         DeviceScreenType.mobile
                     ? const Text("RTech")
                     : Container(
-                        margin: EdgeInsets.only(
-                          top: SizeConfig.sW! * 1,
-                          bottom: SizeConfig.sW! * 1,
+                      width: double.infinity,
+                      color: AppColors.bgColor,
+                        padding: EdgeInsets.only(
+                          top: SizeConfig.sW! * 30,
+                          bottom: SizeConfig.sW! * 30,
                           left: sizingInformation.isTablet
                               ? SizeConfig.sW! * 3
                               : SizeConfig.sW! * 7,
@@ -99,62 +104,64 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            const NavBarLogo(),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                NavBarItem(
-                                    text: "Products",
-                                    function: () {
-                                      pageController.animateTo(SizeConfig.sH!,
-                                          duration: const Duration(
-                                              milliseconds: 1500),
-                                          curve: Curves.easeIn);
-                                    }
-                                    //=> Scrollable.ensureVisible(
-                                    //     dataKey!.currentContext!,
-                                    //     duration: Duration(seconds: 2),
-                                    //     curve: Curves.easeIn),
+                            const Expanded(child: NavBarLogo()),
+                            Expanded(
+                              child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    NavBarItem(
+                                        text: "Products",
+                                        function: () {
+                                          pageController.animateTo(
+                                              SizeConfig.sH!,
+                                              duration: const Duration(
+                                                  milliseconds: 1500),
+                                              curve: Curves.easeIn);
+                                        }
+                                        //=> Scrollable.ensureVisible(
+                                        //     dataKey!.currentContext!,
+                                        //     duration: Duration(seconds: 2),
+                                        //     curve: Curves.easeIn),
+                                        ),
+                                    SizedBox(
+                                      width: SizeConfig.sW! * 5,
                                     ),
-                                SizedBox(
-                                  width: SizeConfig.sW! * 2,
-                                ),
-                                NavBarItem(
-                                    text: "Support",
-                                    function: () {
-                                      pageController.animateTo(
-                                          sizingInformation.isDesktop
-                                              ? SizeConfig.sH! * 90
-                                              : SizeConfig.sH! * 150,
-                                          duration: const Duration(
-                                              milliseconds: 1500),
-                                          curve: Curves.easeIn);
-                                    }
-                                    // => Scrollable.ensureVisible(
-                                    //     dataKey1!.currentContext!,
-                                    //     duration: Duration(seconds: 2),
-                                    //     curve: Curves.easeIn),
+                                    NavBarItem(
+                                        text: "Support",
+                                        function: () {
+                                          pageController.animateTo(
+                                              sizingInformation.isDesktop
+                                                  ? SizeConfig.sH! * 90
+                                                  : SizeConfig.sH! * 150,
+                                              duration: const Duration(
+                                                  milliseconds: 1500),
+                                              curve: Curves.easeIn);
+                                        }
+                                        // => Scrollable.ensureVisible(
+                                        //     dataKey1!.currentContext!,
+                                        //     duration: Duration(seconds: 2),
+                                        //     curve: Curves.easeIn),
+                                        ),
+                                    SizedBox(
+                                      width: SizeConfig.sW! * 5,
                                     ),
-                                SizedBox(
-                                  width: SizeConfig.sW! * 2,
-                                ),
-                                NavBarItem(
-                                    text: "Cities",
-                                    function: () {
-                                      pageController.animateTo(
-                                          sizingInformation.isDesktop
-                                              ? SizeConfig.sH! * 170
-                                              : SizeConfig.sH! * 280,
-                                          duration: const Duration(
-                                              milliseconds: 1500),
-                                          curve: Curves.easeIn);
-                                    }
-                                    // => Scrollable.ensureVisible(
-                                    //     dataKey2!.currentContext!,
-                                    //     duration: Duration(seconds: 2),
-                                    //     curve: Curves.easeIn),
-                                    ),
-                              ]
+                                    NavBarItem(
+                                        text: "Cities",
+                                        function: () {
+                                          pageController.animateTo(
+                                              sizingInformation.isDesktop
+                                                  ? SizeConfig.sH! * 170
+                                                  : SizeConfig.sH! * 280,
+                                              duration: const Duration(
+                                                  milliseconds: 1500),
+                                              curve: Curves.easeIn);
+                                        }
+                                        // => Scrollable.ensureVisible(
+                                        //     dataKey2!.currentContext!,
+                                        //     duration: Duration(seconds: 2),
+                                        //     curve: Curves.easeIn),
+                                        ),
+                                  ]),
                             ),
                           ],
                         )),
@@ -232,7 +239,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       duration: const Duration(milliseconds: 2500),
                       child: const ServicesPageDesktopTab(),
                     ),
-                    
                   ],
                 ),
               ),
