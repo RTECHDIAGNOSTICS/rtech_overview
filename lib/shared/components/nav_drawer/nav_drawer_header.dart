@@ -3,7 +3,6 @@ import 'package:rtech_overview/shared/utils/app_colors.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../utils/size_config.dart';
-import '../navbar/nav_bar_logo.dart';
 
 class NavigationDrawerHeader extends StatelessWidget {
   const NavigationDrawerHeader({Key? key}) : super(key: key);

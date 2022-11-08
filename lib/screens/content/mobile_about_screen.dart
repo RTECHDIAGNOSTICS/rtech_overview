@@ -40,7 +40,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                   padding: const EdgeInsets.only(right: 20, left: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                     ],
                   ),
                 ),

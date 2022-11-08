@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../gen/theme/theme_provider.dart';
 import '../shared/utils/size_config.dart';
 
 class AboutScreen extends StatefulWidget {
@@ -37,7 +36,7 @@ class _AboutScreenState extends State<AboutScreen> {
             width: SizeConfig.sW! * 160,
             child: sizingInformation.isDesktop
                 ? Row(
-                    children: [
+                    children: const [
                     ],
                     //For Tablet View//
                     //
@@ -45,7 +44,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                     ],
                   ),
           ),

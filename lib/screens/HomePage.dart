@@ -2,12 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:line_icons/line_icons.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rtech_overview/gen/assets.gen.dart';
 import 'package:rtech_overview/shared/utils/app_colors.dart';
 
-import '../shared/utils/screen_utils.dart';
 import '../shared/utils/size_config.dart';
 
 class HomePage extends StatefulWidget {

@@ -1,10 +1,8 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import '../shared/utils/onHover.dart';
 import '../shared/utils/size_config.dart';
 
 class ServicesPageDesktopTab extends StatefulWidget {
@@ -45,7 +43,7 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                   sizingInformation.isDesktop
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                           ],
                         )
                       :
@@ -53,7 +51,7 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                       ///for Tablet Vieww
                       Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                           ],
                         ),
                   Container(
@@ -68,11 +66,11 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                             ? Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                 ],
                               )
                             //for Tablet View
-                            : SizedBox()
+                            : const SizedBox()
                       ],
                     ),
                   ),

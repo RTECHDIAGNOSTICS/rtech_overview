@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../utils/size_config.dart';
-import '../navbar/nav_bar_item.dart';
 
 class DrawerItem extends StatelessWidget {
   final String title;
