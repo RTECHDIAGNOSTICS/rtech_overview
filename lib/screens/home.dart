@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:rtech_overview/screens/services_desktop_tablet.dart';
 import 'package:rtech_overview/shared/utils/app_colors.dart';
+import '../gen/assets.gen.dart';
 import '../shared/components/nav_drawer/nav_drawer.dart';
 import '../shared/components/navbar/nav_bar_item.dart';
 import '../shared/components/navbar/nav_bar_logo.dart';
@@ -79,7 +80,30 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ? const NavigationDrawer()
             : null,
         appBar: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? null
+            ? AppBar(
+                centerTitle: true,
+                iconTheme: IconThemeData(
+                    size: SizeConfig.sW! * 8, color: AppColors.black),
+                backgroundColor: AppColors.bgColor,
+                title: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Assets.images.rTechLogoBlack.image(
+                      width: SizeConfig.sW! * 8,
+                      height: SizeConfig.sW! * 8,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      "R Tech\nDiagnostics",
+                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: SizeConfig.sW! * 3.5,
+                          ),
+                    ),
+                  ],
+                ),
+              )
             : AppBar(
                 toolbarHeight: 80,
                 centerTitle: true,
@@ -89,17 +113,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         DeviceScreenType.mobile
                     ? const Text("RTech")
                     : Container(
-                      width: double.infinity,
-                      color: AppColors.bgColor,
+                        width: double.infinity,
+                        color: AppColors.bgColor,
                         padding: EdgeInsets.only(
                           top: SizeConfig.sW! * 30,
                           bottom: SizeConfig.sW! * 30,
                           left: sizingInformation.isTablet
-                              ? SizeConfig.sW! * 3
+                              ? SizeConfig.sW! * 4
                               : SizeConfig.sW! * 7,
                           right: sizingInformation.isTablet
-                              ? 0
-                              : SizeConfig.sW! * 7,
+                              ? SizeConfig.sW! * 4
+                              : SizeConfig.sW! * 2,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

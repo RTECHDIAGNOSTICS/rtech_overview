@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rtech_overview/shared/utils/size_config.dart';
 
 import '../../../gen/assets.gen.dart';
 
@@ -21,7 +22,7 @@ class NavBarItem extends StatelessWidget {
           child: Text(
             text!,
             style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                  fontSize: 20,
+                  fontSize: SizeConfig.sW! * 1.8,
                   fontWeight: FontWeight.bold,
                 ),
           ),

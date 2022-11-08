@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../gen/assets.gen.dart';
+import '../../shared/utils/app_colors.dart';
 import '../../shared/utils/size_config.dart';
 
 class MobileHomePage extends StatefulWidget {
@@ -15,18 +17,110 @@ class _MobileHomePageState extends State<MobileHomePage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Stack(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            child: Column(
+    return Padding(
+      padding: EdgeInsets.only(left: SizeConfig.sW! * 8, right: SizeConfig.sW! * 8),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: SizeConfig.sH! * 10,
+                    ),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                          text: "The easiest and reliable way to get your ",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  height: 1.3,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: SizeConfig.sW! * 6),
+                          children: [
+                            TextSpan(
+                              text: "TRUCK",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      height: 1.3,
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: SizeConfig.sW! * 6),
+                            ),
+                            TextSpan(
+                              text: " back on the road",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      height: 1.3,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.black,
+                                      fontSize: SizeConfig.sW! * 6),
+                            )
+                          ]),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "Download the  Rtech app",
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.black,
+                          fontSize: SizeConfig.sW! * 3),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Assets.images.appstore.image(
+                          width: SizeConfig.sW! * 25,
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Assets.images.playstore.image(
+                          width: SizeConfig.sW! * 25,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Assets.images.homeCircleGradBlue.image(
+                        height: SizeConfig.sW! * 90,
+                        width: SizeConfig.sW! * 90),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50.0),
+                      child: ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30)),
+                          child: Assets.images.appMockup.image(
+                              height: SizeConfig.sW! * 60,
+                              width: SizeConfig.sW! * 60)),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

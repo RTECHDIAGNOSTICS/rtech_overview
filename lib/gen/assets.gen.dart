@@ -20,8 +20,12 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/appMockup.png');
   AssetGenImage get homeCircleGrad =>
       const AssetGenImage('assets/images/homeCircleGrad.png');
+  AssetGenImage get homeCircleGradBlue =>
+      const AssetGenImage('assets/images/homeCircleGradBlue.png');
   AssetGenImage get rTechLogoBlack =>
       const AssetGenImage('assets/images/rTechLogoBlack.png');
+  AssetGenImage get appstore => const AssetGenImage('assets/images/app store image.jpg');
+  AssetGenImage get playstore => const AssetGenImage('assets/images/play store image.jpg');
   
   
   
@@ -32,8 +36,6 @@ class $AssetsImagesGen {
 class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
-  SvgGenImage get appstore => const SvgGenImage('assets/svgs/app store img.svg');
-  SvgGenImage get playstore => const SvgGenImage('assets/svgs/play store img.svg');
   SvgGenImage get arrow => const SvgGenImage('assets/svgs/arrow.svg');
   
   

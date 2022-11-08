@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../../../gen/assets.gen.dart';
+import '../../utils/size_config.dart';
 import '../navbar/nav_bar_item.dart';
 
 class DrawerItem extends StatelessWidget {
   final String title;
   final Function()? function;
-  final IconData icon;
-  const DrawerItem(this.title, this.icon, this.function, {super.key});
+  const DrawerItem(this.title, this.function, {super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 30, top: 60),
       child: Row(
         children: <Widget>[
-          Icon(icon),
-          const SizedBox(width: 30),
-          NavBarItem(
-            text: title,
-            function: function,
+          Row(
+            children: [
+              TextButton(
+                onPressed: function!,
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                        fontSize: SizeConfig.sW! * 3.5,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Assets.svgs.arrow.svg(),
+            ],
           ),
         ],
       ),

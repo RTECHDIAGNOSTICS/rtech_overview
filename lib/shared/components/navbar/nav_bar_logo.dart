@@ -13,8 +13,8 @@ class NavBarLogo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Assets.images.rTechLogoBlack.image(
-          width: 50,
-          height: 50
+          width: SizeConfig.sW! * 4,
+          height: SizeConfig.sW! * 4,
         ),
         const SizedBox(width: 20),
         Text(
@@ -22,7 +22,7 @@ class NavBarLogo extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .headline6!
-              .copyWith(fontWeight: FontWeight.bold),
+              .copyWith(fontWeight: FontWeight.bold,fontSize: SizeConfig.sW! * 1.6,),
         ),
       ],
     );
