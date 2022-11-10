@@ -26,6 +26,14 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/rTechLogoBlack.png');
   AssetGenImage get appstore => const AssetGenImage('assets/images/app store image.jpg');
   AssetGenImage get playstore => const AssetGenImage('assets/images/play store image.jpg');
+  AssetGenImage get newsletterImage => const AssetGenImage('assets/images/newsletter image.jpg');
+  AssetGenImage get mackTruck => const AssetGenImage('assets/images/mack truck.jpg');
+  AssetGenImage get ctaImage => const AssetGenImage('assets/images/cta image.png');
+  AssetGenImage get ctaEllipse => const AssetGenImage('assets/images/cta Ellipse.png');
+  AssetGenImage get ctaEllipse1 => const AssetGenImage('assets/images/cta Ellipse 1.png');
+  AssetGenImage get ctaImageMobile => const AssetGenImage('assets/images/cta image mobile.png');
+  AssetGenImage get ctaEclispse1Mobile => const AssetGenImage('assets/images/cta eclispse 1 mobile.png');
+  AssetGenImage get ctaEclispseMobile => const AssetGenImage('assets/images/cta eclispse mobile.png');
   
   
   
@@ -37,6 +45,14 @@ class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
   SvgGenImage get arrow => const SvgGenImage('assets/svgs/arrow.svg');
+  SvgGenImage get checkGreen => const SvgGenImage('assets/svgs/check green.svg');
+  SvgGenImage get consultation => const SvgGenImage('assets/svgs/consultation.svg');
+  SvgGenImage get instagramSvg => const SvgGenImage('assets/svgs/instagram svg.svg');
+  SvgGenImage get linkedInSvg => const SvgGenImage('assets/svgs/linkedIn svg.svg');
+  SvgGenImage get towing => const SvgGenImage('assets/svgs/towing (2).svg');
+  SvgGenImage get truckFix => const SvgGenImage('assets/svgs/truck fix.svg');
+  SvgGenImage get truckPart => const SvgGenImage('assets/svgs/truck part.svg');
+  SvgGenImage get twitterSvg => const SvgGenImage('assets/svgs/twitter svg.svg');
   
   
 

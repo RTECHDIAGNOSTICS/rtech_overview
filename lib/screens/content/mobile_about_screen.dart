@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../gen/assets.gen.dart';
+import '../../shared/utils/app_colors.dart';
 import '../../shared/utils/size_config.dart';
 
 class MobileAboutScreen extends StatefulWidget {
@@ -29,25 +31,109 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
               ? 16
               : 21;
-      return Stack(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 1.15,
-            margin: const EdgeInsets.only(top: 50.0),
-            child: Column(
+      return Container(
+        margin: EdgeInsets.only(
+          top: SizeConfig.sW! * 1,
+          bottom: SizeConfig.sW! * 1,
+          left: sizingInformation.isMobile
+              ? SizeConfig.sW! * 30
+              : sizingInformation.isTablet
+                  ? SizeConfig.sW! * 4
+                  : SizeConfig.sW! * 8,
+          right: sizingInformation.isMobile
+              ? SizeConfig.sW! * 30
+              : sizingInformation.isTablet
+                  ? SizeConfig.sW! * 4
+                  : SizeConfig.sW! * 8,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            
+            SizedBox(
+              height: SizeConfig.sW! * 8,
+            ),
+            Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 20, left: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                    ],
-                  ),
+                Assets.svgs.truckFix.svg(),
+                SizedBox(
+                  height: SizeConfig.sW! * 3,
+                ),
+                Text(
+                  "Get a mechanic to fix your truck  with ease.",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.black,
+                      fontSize: SizeConfig.sW! * 3.5),
                 ),
               ],
             ),
-          ),
-        ],
+            SizedBox(
+              height: SizeConfig.sW! * 8,
+            ),
+            Column(
+              children: [
+                Assets.svgs.truckPart.svg(),
+                SizedBox(
+                  height: SizeConfig.sW! * 3,
+                ),
+                Text(
+                  "Get New and Used truck parts on our app.",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.black,
+                      fontSize: SizeConfig.sW! * 3.5),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: SizeConfig.sW! * 8,
+            ),
+            Column(
+              children: [
+                Assets.svgs.towing.svg(),
+                SizedBox(
+                  height: SizeConfig.sW! * 3,
+                ),
+                Text(
+                  "Initiate a tow to get your truck off the road.",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.black,
+                      fontSize: SizeConfig.sW! * 3.5),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: SizeConfig.sW! * 8,
+            ),
+            Column(
+              children: [
+                Assets.svgs.consultation.svg(),
+                SizedBox(
+                  height: SizeConfig.sW! * 3,
+                ),
+                Text(
+                  "Need professional advice? We are available 24/7.",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.black,
+                      fontSize: SizeConfig.sW! * 3.5),
+                ),
+              ],
+            ),
+            
+            SizedBox(
+              height: SizeConfig.sW! * 8,
+            ),
+          ],
+        ),
       );
     });
   }

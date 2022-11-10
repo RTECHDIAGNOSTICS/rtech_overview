@@ -12,6 +12,7 @@ class DrawerItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 30, top: 60),
       child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Row(
             children: [
@@ -20,7 +21,7 @@ class DrawerItem extends StatelessWidget {
                 child: Text(
                   title,
                   style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                        fontSize: SizeConfig.sW! * 3.5,
+                        fontSize: SizeConfig.sW! * 6.5,
                         fontWeight: FontWeight.bold,
                       ),
                 ),

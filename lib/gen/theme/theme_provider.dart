@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../shared/utils/app_colors.dart';
 
@@ -82,21 +83,26 @@ class MyThemes {
     accentColor: const Color(0xFF48BCE1),
     dividerColor: const Color(0xFFFFFFFF),
     textTheme: const TextTheme().copyWith(
-      bodyText1:
-          const TextStyle(color: Colors.black, fontSize: 16.0, height: 1.5),
-      bodyText2: const TextStyle(
+      bodyText1: GoogleFonts.dmSans(
+        color: Colors.black,
+        fontSize: 16.0,
+        height: 1.5,
+      ),
+      bodyText2: GoogleFonts.inter(
+        color: Colors.black,
+         fontSize: 16.0,
+        height: 1.5,
+      ),
+      headline4: GoogleFonts.dmSans(
         color: Colors.black,
       ),
-      headline4: const TextStyle(
+      headline5: GoogleFonts.dmSans(
         color: Colors.black,
       ),
-      headline5: const TextStyle(
+      headline6: GoogleFonts.dmSans(
         color: Colors.black,
       ),
-      headline6: const TextStyle(
-        color: Colors.black,
-      ),
-      headline3: const TextStyle(
+      headline3: GoogleFonts.dmSans(
         color: Colors.black,
       ),
     ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rtech_overview/shared/utils/size_config.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../../utils/app_colors.dart';
 
 class NavBarItem extends StatelessWidget {
   final String? text;
@@ -21,10 +23,10 @@ class NavBarItem extends StatelessWidget {
           onPressed: function!,
           child: Text(
             text!,
-            style: Theme.of(context).textTheme.subtitle1!.copyWith(
+            style: GoogleFonts.kanit(
                   fontSize: SizeConfig.sW! * 1.8,
-                  fontWeight: FontWeight.bold,
-                ),
+                  color: AppColors.black,
+                  fontWeight: FontWeight.w400,),
           ),
         ),
         const SizedBox(width: 5,),

@@ -75,12 +75,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
-        backgroundColor: AppColors.appBarBG,
+        backgroundColor: AppColors.white,
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? const NavigationDrawer()
             : null,
         appBar: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? AppBar(
+              
                 centerTitle: true,
                 iconTheme: IconThemeData(
                     size: SizeConfig.sW! * 8, color: AppColors.black),
@@ -96,7 +97,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     const SizedBox(width: 10),
                     Text(
                       "R Tech\nDiagnostics",
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: SizeConfig.sW! * 3.5,
                           ),
@@ -194,20 +195,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           children: [
             Container(
               color: Colors.transparent,
-              margin: EdgeInsets.only(
-                top: SizeConfig.sW! * 1,
-                bottom: SizeConfig.sW! * 1,
-                left: sizingInformation.isMobile
-                    ? 0
-                    : sizingInformation.isTablet
-                        ? SizeConfig.sW! * 4
-                        : SizeConfig.sW! * 8,
-                right: sizingInformation.isMobile
-                    ? 0
-                    : sizingInformation.isTablet
-                        ? SizeConfig.sW! * 4
-                        : SizeConfig.sW! * 8,
-              ),
               child: ScreenTypeLayout(
                 mobile: SingleChildScrollView(
                   controller: mobileController,
@@ -222,10 +209,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         duration: const Duration(milliseconds: 2500),
                         child: const MobileAboutScreen(),
                       ),
+                      const CtaWidget(
+                        isMobile: true,
+                      ),
                       FadeInLeft(
                         duration: const Duration(milliseconds: 2500),
                         child: const MobileServicesScreen(),
                       ),
+                      const FooterWidget(isMobile: true,),
                     ],
                   ),
                 ),
@@ -241,10 +232,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         duration: const Duration(milliseconds: 2500),
                         child: const AboutScreen(),
                       ),
+                      const CtaWidget(),
                       FadeInLeft(
                         duration: const Duration(milliseconds: 2500),
                         child: const ServicesPageDesktopTab(),
                       ),
+                      const FooterWidget(),
                     ],
                   ),
                 ),
@@ -259,10 +252,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       duration: const Duration(milliseconds: 2500),
                       child: const AboutScreen(),
                     ),
+                    const CtaWidget(),
                     FadeInLeftBig(
                       duration: const Duration(milliseconds: 2500),
                       child: const ServicesPageDesktopTab(),
                     ),
+                    const FooterWidget(),
                   ],
                 ),
               ),
@@ -271,5 +266,283 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
     );
+  }
+}
+
+class FooterWidget extends StatelessWidget {
+  const FooterWidget({
+    Key? key,
+     this.isMobile = false,
+  }) : super(key: key);
+  final bool isMobile;
+
+  @override
+  Widget build(BuildContext context) {
+    return isMobile ? Container(
+      padding: EdgeInsets.only(
+          top: SizeConfig.sW! * 5,
+          bottom: SizeConfig.sW! * 5,
+          right: SizeConfig.sW! * 5,
+          left: SizeConfig.sW! * 5),
+      color: Colors.black,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Assets.svgs.instagramSvg.svg(
+                height: SizeConfig.sW! * 3,
+                width: SizeConfig.sW! * 3,
+              ),
+              SizedBox(
+                width: SizeConfig.sW! * 2,
+              ),
+              Assets.svgs.twitterSvg.svg(
+                height: SizeConfig.sW! * 3,
+                width: SizeConfig.sW! * 3,
+              ),
+              SizedBox(
+                width: SizeConfig.sW! * 2,
+              ),
+              Assets.svgs.linkedInSvg.svg(
+                height: SizeConfig.sW! * 3,
+                width: SizeConfig.sW! * 3,
+              ),
+            ],
+          ),
+          Text(
+            'Copyrigh Rtech Diagonistics 2022',
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  color: Colors.white,
+                  fontSize: SizeConfig.sW! * 2,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+        ],
+      ),
+    ) : Container(
+      padding: EdgeInsets.only(
+          top: SizeConfig.sW! * 3,
+          bottom: SizeConfig.sW! * 3,
+          right: SizeConfig.sW! * 5,
+          left: SizeConfig.sW! * 5),
+      color: Colors.black,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Assets.svgs.instagramSvg.svg(
+                height: SizeConfig.sW! * 1.8,
+                width: SizeConfig.sW! * 1.8,
+              ),
+              SizedBox(
+                width: SizeConfig.sW! * 1,
+              ),
+              Assets.svgs.twitterSvg.svg(
+                height: SizeConfig.sW! * 1.8,
+                width: SizeConfig.sW! * 1.8,
+              ),
+              SizedBox(
+                width: SizeConfig.sW! * 1,
+              ),
+              Assets.svgs.linkedInSvg.svg(
+                height: SizeConfig.sW! * 1.8,
+                width: SizeConfig.sW! * 1.8,
+              ),
+            ],
+          ),
+          Text(
+            'Copyrigh Rtech Diagonistics 2022',
+            style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                  color: Colors.white,
+                  fontSize: SizeConfig.sW! * 1,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CtaWidget extends StatelessWidget {
+  const CtaWidget({
+    Key? key,
+    this.isMobile = false,
+  }) : super(key: key);
+
+  final bool isMobile;
+
+  @override
+  Widget build(BuildContext context) {
+    return isMobile
+        ? Stack(
+            alignment: Alignment.topLeft,
+            children: [
+              Container(
+                height: SizeConfig.sW! * 50.4,
+                width: double.infinity,
+                // padding: EdgeInsets.all(SizeConfig.sW! * 6),
+                decoration: const BoxDecoration(
+                  color: AppColors.primary,
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Transform.translate(
+                        offset: Offset(
+                          SizeConfig.sW! * 32,
+                          SizeConfig.sW! * 3,
+                        ),
+                        child: Assets.images.ctaEclispseMobile.image()),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Do you provide any\nof the above services ?",
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.white,
+                                  fontSize: SizeConfig.sW! * 3.5),
+                        ),
+                        SizedBox(
+                          height: SizeConfig.sW! * 3,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.sW! * 3,
+                                horizontal: SizeConfig.sW! * 3),
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(
+                                10,
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            'Join us',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.sW! * 2,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Assets.images.ctaImageMobile.image(
+                      height: SizeConfig.sW! * 22.4,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Transform.translate(
+                        offset:
+                            Offset(SizeConfig.sW! * 1.2, SizeConfig.sW! * 0.4),
+                        child: Assets.images.ctaEclispse1Mobile.image(
+                          height: SizeConfig.sW! * 10,
+                        )),
+                  ),
+                ],
+              ),
+            ],
+          )
+        : Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                height: SizeConfig.sW! * 15.4,
+                // padding: EdgeInsets.all(SizeConfig.sW! * 6),
+                decoration: const BoxDecoration(
+                  color: AppColors.primary,
+                ),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Transform.translate(
+                        offset: Offset(SizeConfig.sW! * 18, 0),
+                        child: Assets.images.ctaEllipse.image()),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Do you provide any of the above services ?",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.white,
+                                  fontSize: SizeConfig.sW! * 2.4),
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.sW! * 1.5,
+                                horizontal: SizeConfig.sW! * 1.5),
+                            shape: RoundedRectangleBorder(
+                              side: const BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.circular(
+                                10,
+                              ),
+                            ),
+                          ),
+                          child: Text(
+                            'Join us',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: SizeConfig.sW! * 1.2,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Assets.images.ctaImage.image(
+                      height: SizeConfig.sW! * 12.4,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Transform.translate(
+                        offset:
+                            Offset(SizeConfig.sW! * 1.2, SizeConfig.sW! * 0.4),
+                        child: Assets.images.ctaEllipse1.image(
+                          height: SizeConfig.sW! * 7,
+                        )),
+                  ),
+                ],
+              ),
+            ],
+          );
   }
 }

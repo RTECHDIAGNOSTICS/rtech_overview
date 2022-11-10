@@ -31,221 +31,237 @@ class _HomePageState extends State<HomePage> {
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
               ? 16
               : 21;
-      return Padding(
-        padding: EdgeInsets.only(top: SizeConfig.sH! * 5),
-        child: SizedBox(
-          width: SizeConfig.sW! * 160,
-          child: sizingInformation.isDesktop
-              ? Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: SizeConfig.sH! * 10,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                                text:
-                                    "The easiest and reliable way to get your ",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        height: 1.3,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: SizeConfig.sW! * 4),
-                                children: [
-                                  TextSpan(
-                                    text: "TRUCK",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(
-                                            height: 1.3,
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: SizeConfig.sW! * 4),
-                                  ),
-                                  TextSpan(
-                                    text: " back on the road",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(
-                                            height: 1.3,
-                                            fontWeight: FontWeight.w700,
-                                            color: AppColors.black,
-                                            fontSize: SizeConfig.sW! * 4),
-                                  )
-                                ]),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Download the  Rtech app",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.grey,
-                                    fontSize: 20),
-                          ),
-                          const SizedBox(
-                                height: 10,
-                              ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Assets.images.appstore.image(
-                                width: SizeConfig.sW! * 13,),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Assets.images.playstore.image(
-                                width: SizeConfig.sW! * 13,
-                              ),
-                            ],
-                          ),
-                        ],
+      return Container(
+              margin: EdgeInsets.only(
+                top: SizeConfig.sW! * 1,
+                bottom: SizeConfig.sW! * 1,
+                left: sizingInformation.isMobile
+                    ? 0
+                    : sizingInformation.isTablet
+                        ? SizeConfig.sW! * 4
+                        : SizeConfig.sW! * 8,
+                right: sizingInformation.isMobile
+                    ? 0
+                    : sizingInformation.isTablet
+                        ? SizeConfig.sW! * 4
+                        : SizeConfig.sW! * 8,
+              ),
+        child: Padding(
+          padding: EdgeInsets.only(top: SizeConfig.sH! * 5),
+          child: SizedBox(
+            width: SizeConfig.sW! * 160,
+            child: sizingInformation.isDesktop
+                ? Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: SizeConfig.sH! * 10,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text:
+                                      "The easiest and reliable way to get your ",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .copyWith(
+                                          height: 1.3,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: SizeConfig.sW! * 4),
+                                  children: [
+                                    TextSpan(
+                                      text: "TRUCK",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .copyWith(
+                                              height: 1.3,
+                                              color:
+                                                  Theme.of(context).primaryColor,
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: SizeConfig.sW! * 4),
+                                    ),
+                                    TextSpan(
+                                      text: " back on the road",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .copyWith(
+                                              height: 1.3,
+                                              fontWeight: FontWeight.w700,
+                                              color: AppColors.black,
+                                              fontSize: SizeConfig.sW! * 4),
+                                    )
+                                  ]),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Download the  Rtech app",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.black,
+                                      fontSize: 20),
+                            ),
+                            const SizedBox(
+                                  height: 10,
+                                ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Assets.images.appstore.image(
+                                  width: SizeConfig.sW! * 13,),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Assets.images.playstore.image(
+                                  width: SizeConfig.sW! * 13,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: SizeConfig.sW! * 3,
-                    ),
-                    Expanded(
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Assets.images.homeCircleGrad.image(
-                            height: SizeConfig.sW! * 40,
-                            width: SizeConfig.sW! * 40
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 50.0),
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(bottomLeft:  Radius.circular(20), bottomRight:  Radius.circular(20)),
-                              child: Assets.images.appMockup.image(
-                                 height: SizeConfig.sW! * 30,
-                            width: SizeConfig.sW! *30
-                              )),
-                          ),
-                        ],
+                      SizedBox(
+                        width: SizeConfig.sW! * 3,
                       ),
-                    ),
-                  ],
-                ) // for tablet view
-              : Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: SizeConfig.sH! * 10,
-                          ),
-                          RichText(
-                            text: TextSpan(
-                                text:
-                                    "The easiest and reliable way to get your ",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        height: 1.3,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: SizeConfig.sW! * 4),
-                                children: [
-                                  TextSpan(
-                                    text: "TRUCK",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(
-                                            height: 1.3,
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: SizeConfig.sW! * 4),
-                                  ),
-                                  TextSpan(
-                                    text: " back on the road",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(
-                                            height: 1.3,
-                                            fontWeight: FontWeight.w700,
-                                            color: AppColors.black,
-                                            fontSize: SizeConfig.sW! * 4),
-                                  )
-                                ]),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Download the  Rtech app",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.grey,
-                                    fontSize: 20),
-                          ),
-                          const SizedBox(
-                                height: 10,
-                              ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Assets.images.appstore.image(
-                                width: SizeConfig.sW! * 13,),
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              Assets.images.playstore.image(
-                                width: SizeConfig.sW! * 13,
-                              ),
-                            ],
-                          ),
-                        ],
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Assets.images.homeCircleGrad.image(
+                              height: SizeConfig.sW! * 40,
+                              width: SizeConfig.sW! * 40
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 50.0),
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(bottomLeft:  Radius.circular(20), bottomRight:  Radius.circular(20)),
+                                child: Assets.images.appMockup.image(
+                                   height: SizeConfig.sW! * 30,
+                              width: SizeConfig.sW! *30
+                                )),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: SizeConfig.sW! * 3,
-                    ),
-                    Expanded(
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Assets.images.homeCircleGrad.image(
-                            height: SizeConfig.sW! * 40,
-                            width: SizeConfig.sW! * 40
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 50.0),
-                            child: ClipRRect(
-                              borderRadius: const BorderRadius.only(bottomLeft:  Radius.circular(20), bottomRight:  Radius.circular(20)),
-                              child: Assets.images.appMockup.image(
-                                 height: SizeConfig.sW! * 30,
-                            width: SizeConfig.sW! *30
-                              )),
-                          ),
-                        ],
+                    ],
+                  ) // for tablet view
+                : Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: SizeConfig.sH! * 10,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                  text:
+                                      "The easiest and reliable way to get your ",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .copyWith(
+                                          height: 1.3,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: SizeConfig.sW! * 4),
+                                  children: [
+                                    TextSpan(
+                                      text: "TRUCK",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .copyWith(
+                                              height: 1.3,
+                                              color:
+                                                  Theme.of(context).primaryColor,
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: SizeConfig.sW! * 4),
+                                    ),
+                                    TextSpan(
+                                      text: " back on the road",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyText1!
+                                          .copyWith(
+                                              height: 1.3,
+                                              fontWeight: FontWeight.w700,
+                                              color: AppColors.black,
+                                              fontSize: SizeConfig.sW! * 4),
+                                    )
+                                  ]),
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Download the  Rtech app",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.black,
+                                      fontSize: 20),
+                            ),
+                            const SizedBox(
+                                  height: 10,
+                                ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Assets.images.appstore.image(
+                                  width: SizeConfig.sW! * 13,),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Assets.images.playstore.image(
+                                  width: SizeConfig.sW! * 13,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                      SizedBox(
+                        width: SizeConfig.sW! * 3,
+                      ),
+                      Expanded(
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Assets.images.homeCircleGrad.image(
+                              height: SizeConfig.sW! * 40,
+                              width: SizeConfig.sW! * 40
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 50.0),
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(bottomLeft:  Radius.circular(20), bottomRight:  Radius.circular(20)),
+                                child: Assets.images.appMockup.image(
+                                   height: SizeConfig.sW! * 30,
+                              width: SizeConfig.sW! *30
+                                )),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+          ),
         ),
       );
     });

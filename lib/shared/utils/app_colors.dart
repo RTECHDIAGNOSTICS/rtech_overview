@@ -11,7 +11,7 @@ class AppColors {
   static Color textDark = const Color(0xFF242321);
   static Color textLight = const Color(0xFFADAAAA);
   static Color darkBg = const Color(0xFF000000);
-  static Color lightBg = const Color(0xFFF8F8F8);
+  static Color lightBg = const Color(0xFFFCFCFC);
   static Color appBarBG = const Color(0xFFFCFCFC);
   static Color border = const Color(0xFFD9D9D9);
   static Color mechanicBorderColor = const Color(0xFF611159);
@@ -21,7 +21,7 @@ class AppColors {
   static Color towingBackroundColor = const Color(0xFFD3EBF3);
   static Color truckBackroundColor = const Color(0xFFCDDCCD);
   static Color repairBackroundColor = const Color(0xFFFDEFDD);
-  static Color grey = const Color(0xFF898B8D); 
+  static Color grey = const Color(0xFFADAAAA); 
   static Color buttonGrey = const Color(0xFF6B6B6B);
 
     static Color grey1 = const Color(0xFFADAAAA);

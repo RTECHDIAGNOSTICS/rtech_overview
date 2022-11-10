@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../gen/assets.gen.dart';
+import '../shared/utils/app_colors.dart';
 import '../shared/utils/size_config.dart';
 
 class AboutScreen extends StatefulWidget {
@@ -32,20 +34,127 @@ class _AboutScreenState extends State<AboutScreen> {
       return Stack(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 50.0),
+              margin: EdgeInsets.only(
+                top: SizeConfig.sW! * 10,
+                bottom: SizeConfig.sW! *10,
+                left: sizingInformation.isMobile
+                    ? 0
+                    : sizingInformation.isTablet
+                        ? SizeConfig.sW! * 4
+                        : SizeConfig.sW! * 8,
+                right: sizingInformation.isMobile
+                    ? 0
+                    : sizingInformation.isTablet
+                        ? SizeConfig.sW! * 4
+                        : SizeConfig.sW! * 8,
+              ),
             width: SizeConfig.sW! * 160,
-            child: sizingInformation.isDesktop
-                ? Row(
-                    children: const [
+            child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Assets.svgs.truckFix.svg(),
+                                 SizedBox(
+                                  width: SizeConfig.sW! * 2,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    "Get a mechanic to fix your truck  with ease.",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.black,
+                                            fontSize: SizeConfig.sW! * 1.8),
+                                  ),
+                                ),
+                              ],
+                            ),
+                             SizedBox(height: SizeConfig.sW! * 5,),
+                            Row(
+                              children: [
+                                Assets.svgs.truckPart.svg(),
+                                 SizedBox(
+                                  width: SizeConfig.sW! * 2,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    "Get New and  Used truck parts on our app.",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.black,
+                                            fontSize: SizeConfig.sW! * 1.8),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      
+                             SizedBox(width: SizeConfig.sW! * 12,),
+                      
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Assets.svgs.towing.svg(),
+                                 SizedBox(
+                                  width: SizeConfig.sW! * 2,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    "Initiate a tow to get your truck off the road.",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.black,
+                                            fontSize: SizeConfig.sW! * 1.8),
+                                  ),
+                                ),
+                              ],
+                            ),
+                             SizedBox(height: SizeConfig.sW! * 5,),
+                            Row(
+                              children: [
+                                Assets.svgs.consultation.svg(),
+                                 SizedBox(
+                                  width: SizeConfig.sW! * 2,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    "Need professional advice? We are available 24/7.",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.black,
+                                            fontSize: SizeConfig.sW! * 1.8),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                     //For Tablet View//
                     //
                     //
-                  )
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                    ],
                   ),
           ),
         ],
