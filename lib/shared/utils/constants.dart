@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:url_launcher/url_launcher.dart';
 
 String getWordsExceptFirst(String inputString) {
@@ -22,7 +24,7 @@ String getFirstWord(String inputString) {
 }
 
 Future<void> launchInBrowser(Uri url) async {
-  print(url);
+  log(url.toString());
   if (!await launchUrl(
     url,
     mode: LaunchMode.externalApplication,

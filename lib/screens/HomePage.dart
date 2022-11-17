@@ -1,9 +1,12 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, library_private_types_in_public_api
+
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:rtech_overview/gen/assets.gen.dart';
 import 'package:rtech_overview/shared/utils/app_colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../shared/utils/size_config.dart';
 
@@ -15,6 +18,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  void _launchUrl(String urll) async {
+    final Uri url = Uri(scheme: 'https', path: urll, );
+    if (await canLaunchUrl(url)) {
+      await launchUrl(Uri.parse(urll));
+    } else {
+      log('Could not launch $url');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -32,20 +44,20 @@ class _HomePageState extends State<HomePage> {
               ? 16
               : 21;
       return Container(
-              margin: EdgeInsets.only(
-                top: SizeConfig.sW! * 1,
-                bottom: SizeConfig.sW! * 1,
-                left: sizingInformation.isMobile
-                    ? 0
-                    : sizingInformation.isTablet
-                        ? SizeConfig.sW! * 4
-                        : SizeConfig.sW! * 8,
-                right: sizingInformation.isMobile
-                    ? 0
-                    : sizingInformation.isTablet
-                        ? SizeConfig.sW! * 4
-                        : SizeConfig.sW! * 8,
-              ),
+        margin: EdgeInsets.only(
+          top: SizeConfig.sW! * 1,
+          bottom: SizeConfig.sW! * 1,
+          left: sizingInformation.isMobile
+              ? 0
+              : sizingInformation.isTablet
+                  ? SizeConfig.sW! * 4
+                  : SizeConfig.sW! * 4,
+          right: sizingInformation.isMobile
+              ? 0
+              : sizingInformation.isTablet
+                  ? SizeConfig.sW! * 4
+                  : SizeConfig.sW! * 4,
+        ),
         child: Padding(
           padding: EdgeInsets.only(top: SizeConfig.sH! * 5),
           child: SizedBox(
@@ -65,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                             RichText(
                               text: TextSpan(
                                   text:
-                                      "The easiest and reliable way to get your ",
+                                      "The easiest\nand reliable way to get your ",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText1!
@@ -75,19 +87,18 @@ class _HomePageState extends State<HomePage> {
                                           fontSize: SizeConfig.sW! * 4),
                                   children: [
                                     TextSpan(
-                                      text: "TRUCK",
+                                      text: "TRUCK\n",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText1!
                                           .copyWith(
                                               height: 1.3,
-                                              color:
-                                                  Theme.of(context).primaryColor,
+                                              color: AppColors.black,
                                               fontWeight: FontWeight.w700,
                                               fontSize: SizeConfig.sW! * 4),
                                     ),
                                     TextSpan(
-                                      text: " back on the road",
+                                      text: "back on the road",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText1!
@@ -113,18 +124,29 @@ class _HomePageState extends State<HomePage> {
                                       fontSize: 20),
                             ),
                             const SizedBox(
-                                  height: 10,
-                                ),
+                              height: 10,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Assets.images.appstore.image(
-                                  width: SizeConfig.sW! * 13,),
+                                InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                  },
+                                  child: Assets.images.appstore.image(
+                                    width: SizeConfig.sW! * 13,
+                                  ),
+                                ),
                                 const SizedBox(
                                   width: 15,
                                 ),
-                                Assets.images.playstore.image(
-                                  width: SizeConfig.sW! * 13,
+                                InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                  },
+                                  child: Assets.images.playstore.image(
+                                    width: SizeConfig.sW! * 13,
+                                  ),
                                 ),
                               ],
                             ),
@@ -132,24 +154,24 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(
-                        width: SizeConfig.sW! * 3,
+                        width: SizeConfig.sW! * 10,
                       ),
                       Expanded(
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            Assets.images.homeCircleGrad.image(
-                              height: SizeConfig.sW! * 40,
-                              width: SizeConfig.sW! * 40
-                            ),
+                            Assets.images.homeCircleGradBlue.image(
+                                height: SizeConfig.sW! * 40,
+                                width: SizeConfig.sW! * 40),
                             Padding(
                               padding: const EdgeInsets.only(top: 50.0),
                               child: ClipRRect(
-                                borderRadius: const BorderRadius.only(bottomLeft:  Radius.circular(20), bottomRight:  Radius.circular(20)),
-                                child: Assets.images.appMockup.image(
-                                   height: SizeConfig.sW! * 30,
-                              width: SizeConfig.sW! *30
-                                )),
+                                  borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  child: Assets.images.appMockup.image(
+                                      height: SizeConfig.sW! * 30,
+                                      width: SizeConfig.sW! * 30)),
                             ),
                           ],
                         ),
@@ -170,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                             RichText(
                               text: TextSpan(
                                   text:
-                                      "The easiest and reliable way to get your ",
+                                      "The easiest\nand reliable way\nto get your ",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText1!
@@ -180,19 +202,18 @@ class _HomePageState extends State<HomePage> {
                                           fontSize: SizeConfig.sW! * 4),
                                   children: [
                                     TextSpan(
-                                      text: "TRUCK",
+                                      text: "TRUCK\n",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText1!
                                           .copyWith(
                                               height: 1.3,
-                                              color:
-                                                  Theme.of(context).primaryColor,
+                                              color: AppColors.black,
                                               fontWeight: FontWeight.w700,
                                               fontSize: SizeConfig.sW! * 4),
                                     ),
                                     TextSpan(
-                                      text: " back on the road",
+                                      text: "back on the road",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText1!
@@ -215,21 +236,34 @@ class _HomePageState extends State<HomePage> {
                                   .copyWith(
                                       fontWeight: FontWeight.w600,
                                       color: AppColors.black,
-                                      fontSize: 20),
+                                      fontSize: SizeConfig.sW! * 2),
                             ),
                             const SizedBox(
-                                  height: 10,
-                                ),
+                              height: 10,
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Assets.images.appstore.image(
-                                  width: SizeConfig.sW! * 13,),
+                                InkWell(
+                                  
+                                  onTap: () {
+                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                  },
+                                  child: Assets.images.appstore.image(
+                                    width: SizeConfig.sW! * 13,
+                                  ),
+                                ),
                                 const SizedBox(
                                   width: 15,
                                 ),
-                                Assets.images.playstore.image(
-                                  width: SizeConfig.sW! * 13,
+                                InkWell(
+                                  
+                                  onTap: () {
+                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                  },
+                                  child: Assets.images.playstore.image(
+                                    width: SizeConfig.sW! * 13,
+                                  ),
                                 ),
                               ],
                             ),
@@ -243,18 +277,18 @@ class _HomePageState extends State<HomePage> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            Assets.images.homeCircleGrad.image(
-                              height: SizeConfig.sW! * 40,
-                              width: SizeConfig.sW! * 40
-                            ),
+                            Assets.images.homeCircleGradBlue.image(
+                                height: SizeConfig.sW! * 40,
+                                width: SizeConfig.sW! * 40),
                             Padding(
                               padding: const EdgeInsets.only(top: 50.0),
                               child: ClipRRect(
-                                borderRadius: const BorderRadius.only(bottomLeft:  Radius.circular(20), bottomRight:  Radius.circular(20)),
-                                child: Assets.images.appMockup.image(
-                                   height: SizeConfig.sW! * 30,
-                              width: SizeConfig.sW! *30
-                                )),
+                                  borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)),
+                                  child: Assets.images.appMockup.image(
+                                      height: SizeConfig.sW! * 30,
+                                      width: SizeConfig.sW! * 30)),
                             ),
                           ],
                         ),

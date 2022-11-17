@@ -1,8 +1,11 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, library_private_types_in_public_api
+
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../gen/assets.gen.dart';
 import '../shared/utils/app_colors.dart';
@@ -16,6 +19,17 @@ class ServicesPageDesktopTab extends StatefulWidget {
 }
 
 class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
+
+  
+  void _launchUrl(String urll) async {
+    final Uri url = Uri(scheme: 'https', path: urll, );
+    if (await canLaunchUrl(url)) {
+      await launchUrl(Uri.parse(urll));
+    } else {
+      log('Could not launch $url');
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -111,14 +125,24 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Assets.images.appstore.image(
-                                      width: SizeConfig.sW! * 13,
+                                    InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                  },
+                                      child: Assets.images.appstore.image(
+                                        width: SizeConfig.sW! * 13,
+                                      ),
                                     ),
                                     const SizedBox(
                                       width: 15,
                                     ),
-                                    Assets.images.playstore.image(
-                                      width: SizeConfig.sW! * 13,
+                                    InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                  },
+                                      child: Assets.images.playstore.image(
+                                        width: SizeConfig.sW! * 13,
+                                      ),
                                     ),
                                   ],
                                 ),

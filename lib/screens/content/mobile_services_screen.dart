@@ -1,7 +1,10 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, library_private_types_in_public_api
+
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../shared/utils/app_colors.dart';
@@ -16,6 +19,17 @@ class MobileServicesScreen extends StatefulWidget {
 }
 
 class _MobileServicesScreenState extends State<MobileServicesScreen> {
+
+  
+  void _launchUrl(String urll) async {
+    final Uri url = Uri(scheme: 'https', path: urll, );
+    if (await canLaunchUrl(url)) {
+      await launchUrl(Uri.parse(urll));
+    } else {
+      log('Could not launch $url');
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -63,51 +77,52 @@ class _MobileServicesScreenState extends State<MobileServicesScreen> {
                           height: SizeConfig.sW! * 60,
                           width: SizeConfig.sW! * 60),
                       
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [Assets.svgs.checkGreen.svg(
+                      Padding(
+                        padding:  EdgeInsets.only(left: SizeConfig.sW! * 25),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Row(
                               
-                            ),
-                          
-                          Text(
-                            "Assign trucks to Drivers.",
-                            textAlign: TextAlign.start,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    fontWeight: FontWeight.w400,
-                                    color: AppColors.black,
-                                    fontSize: SizeConfig.sW! * 4),
-                          ),],
-                          ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                          Row(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Assets.svgs.checkGreen.svg(),
-                              
-                              Text(
-                                "Real-time location update.",
-                                textAlign: TextAlign.start,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColors.black,
-                                        fontSize: SizeConfig.sW! * 4),
+                              children: [Assets.svgs.checkGreen.svg(
+                                
                               ),
-                            ],
-                          ),
-                        ],
+                            
+                            Text(
+                              "Assign trucks to Drivers.",
+                              textAlign: TextAlign.start,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.black,
+                                      fontSize: SizeConfig.sW! * 4),
+                            ),],
+                            ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                            Row(
+                              children: [
+                                Assets.svgs.checkGreen.svg(),
+                                
+                                Text(
+                                  "Real-time location update.",
+                                  textAlign: TextAlign.start,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .copyWith(
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.black,
+                                          fontSize: SizeConfig.sW! * 4),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 30,
@@ -115,14 +130,24 @@ class _MobileServicesScreenState extends State<MobileServicesScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Assets.images.appstore.image(
-                            width: SizeConfig.sW! * 30,
+                          InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                  },
+                            child: Assets.images.appstore.image(
+                              width: SizeConfig.sW! * 30,
+                            ),
                           ),
                           const SizedBox(
                             width: 15,
                           ),
-                          Assets.images.playstore.image(
-                            width: SizeConfig.sW! * 30,
+                          InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                  },
+                            child: Assets.images.playstore.image(
+                              width: SizeConfig.sW! * 30,
+                            ),
                           ),
                         ],
                       ),

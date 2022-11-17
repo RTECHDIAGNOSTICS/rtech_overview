@@ -34,6 +34,18 @@ class $AssetsImagesGen {
   AssetGenImage get ctaImageMobile => const AssetGenImage('assets/images/cta image mobile.png');
   AssetGenImage get ctaEclispse1Mobile => const AssetGenImage('assets/images/cta eclispse 1 mobile.png');
   AssetGenImage get ctaEclispseMobile => const AssetGenImage('assets/images/cta eclispse mobile.png');
+  AssetGenImage get towing => const AssetGenImage('assets/images/towing.jpg');
+  AssetGenImage get truckFix => const AssetGenImage('assets/images/truckFix.jpg');
+  AssetGenImage get truckPart => const AssetGenImage('assets/images/truckPart.jpg');
+  AssetGenImage get consultation => const AssetGenImage('assets/images/consultation.jpg');
+  AssetGenImage get maxxforceImg => const AssetGenImage('assets/images/maxxforce img.jpg');
+  AssetGenImage get mackImg => const AssetGenImage('assets/images/mack img.jpg');
+  AssetGenImage get cumminsImg => const AssetGenImage('assets/images/cummins img.jpg');
+  AssetGenImage get hinoImg => const AssetGenImage('assets/images/hino img.jpg');
+  AssetGenImage get paccarImg => const AssetGenImage('assets/images/paccar img.jpg');
+  AssetGenImage get catImg => const AssetGenImage('assets/images/cat img.jpg');
+  AssetGenImage get volvoImg => const AssetGenImage('assets/images/volvo img.jpg');
+  AssetGenImage get detroitImg => const AssetGenImage('assets/images/detroit img.jpg');
   
   
   
@@ -46,12 +58,8 @@ class $AssetsSvgsGen {
 
   SvgGenImage get arrow => const SvgGenImage('assets/svgs/arrow.svg');
   SvgGenImage get checkGreen => const SvgGenImage('assets/svgs/check green.svg');
-  SvgGenImage get consultation => const SvgGenImage('assets/svgs/consultation.svg');
   SvgGenImage get instagramSvg => const SvgGenImage('assets/svgs/instagram svg.svg');
   SvgGenImage get linkedInSvg => const SvgGenImage('assets/svgs/linkedIn svg.svg');
-  SvgGenImage get towing => const SvgGenImage('assets/svgs/towing (2).svg');
-  SvgGenImage get truckFix => const SvgGenImage('assets/svgs/truck fix.svg');
-  SvgGenImage get truckPart => const SvgGenImage('assets/svgs/truck part.svg');
   SvgGenImage get twitterSvg => const SvgGenImage('assets/svgs/twitter svg.svg');
   
   

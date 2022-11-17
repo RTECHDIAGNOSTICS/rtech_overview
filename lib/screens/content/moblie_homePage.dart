@@ -1,7 +1,10 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, library_private_types_in_public_api
+
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../shared/utils/app_colors.dart';
@@ -15,6 +18,15 @@ class MobileHomePage extends StatefulWidget {
 }
 
 class _MobileHomePageState extends State<MobileHomePage> {
+
+  void _launchUrl(String urll) async {
+    final Uri url = Uri(scheme: 'https', path: urll, );
+    if (await canLaunchUrl(url)) {
+      await launchUrl(Uri.parse(urll));
+    } else {
+      log('Could not launch $url');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -58,29 +70,27 @@ class _MobileHomePageState extends State<MobileHomePage> {
                             textAlign: TextAlign.center,
                             text: TextSpan(
                                 text:
-                                    "The easiest and reliable way to get your ",
+                                    "The easiest\nand reliable way to get your ",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText1!
                                     .copyWith(
                                         height: 1.3,
                                         fontWeight: FontWeight.w700,
-                                        fontSize: SizeConfig.sW! * 6),
+                                        fontSize: SizeConfig.sW! * 8),
                                 children: [
                                   TextSpan(
-                                    text: "TRUCK",
+                                    text: "TRUCK ",
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText1!
                                         .copyWith(
                                             height: 1.3,
-                                            color:
-                                                Theme.of(context).primaryColor,
                                             fontWeight: FontWeight.w700,
-                                            fontSize: SizeConfig.sW! * 6),
+                                            fontSize: SizeConfig.sW! * 8),
                                   ),
                                   TextSpan(
-                                    text: " back on the road",
+                                    text: "back on the road",
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText1!
@@ -88,7 +98,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                                             height: 1.3,
                                             fontWeight: FontWeight.w700,
                                             color: AppColors.black,
-                                            fontSize: SizeConfig.sW! * 6),
+                                            fontSize: SizeConfig.sW! * 8),
                                   )
                                 ]),
                           ),
@@ -112,14 +122,24 @@ class _MobileHomePageState extends State<MobileHomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Assets.images.appstore.image(
-                              width: SizeConfig.sW! * 25,
+                            InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                  },
+                              child: Assets.images.appstore.image(
+                                width: SizeConfig.sW! * 25,
+                              ),
                             ),
                             const SizedBox(
                               width: 15,
                             ),
-                            Assets.images.playstore.image(
-                              width: SizeConfig.sW! * 25,
+                            InkWell(
+                                  onTap: () {
+                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                  },
+                              child: Assets.images.playstore.image(
+                                width: SizeConfig.sW! * 25,
+                              ),
                             ),
                           ],
                         ),
@@ -128,7 +148,7 @@ class _MobileHomePageState extends State<MobileHomePage> {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                        Assets.images.homeCircleGrad.image(
+                        Assets.images.homeCircleGradBlue.image(
                             height: SizeConfig.sW! * 90,
                             width: SizeConfig.sW! * 90),
                         Padding(

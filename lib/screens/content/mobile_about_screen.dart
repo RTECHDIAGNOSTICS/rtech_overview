@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -36,12 +36,12 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
           top: SizeConfig.sW! * 1,
           bottom: SizeConfig.sW! * 1,
           left: sizingInformation.isMobile
-              ? SizeConfig.sW! * 30
+              ? SizeConfig.sW! * 20
               : sizingInformation.isTablet
                   ? SizeConfig.sW! * 4
                   : SizeConfig.sW! * 8,
           right: sizingInformation.isMobile
-              ? SizeConfig.sW! * 30
+              ? SizeConfig.sW! * 20
               : sizingInformation.isTablet
                   ? SizeConfig.sW! * 4
                   : SizeConfig.sW! * 8,
@@ -57,17 +57,17 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
             ),
             Column(
               children: [
-                Assets.svgs.truckFix.svg(),
+                Assets.images.truckFix.image(),
                 SizedBox(
                   height: SizeConfig.sW! * 3,
                 ),
                 Text(
-                  "Get a mechanic to fix your truck  with ease.",
+                  "Get a mechanic to fix your truck with ease.",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       fontWeight: FontWeight.w400,
                       color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 3.5),
+                      fontSize: SizeConfig.sW! * 4.5),
                 ),
               ],
             ),
@@ -76,7 +76,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
             ),
             Column(
               children: [
-                Assets.svgs.truckPart.svg(),
+                Assets.images.truckPart.image(),
                 SizedBox(
                   height: SizeConfig.sW! * 3,
                 ),
@@ -86,7 +86,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       fontWeight: FontWeight.w400,
                       color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 3.5),
+                      fontSize: SizeConfig.sW! * 4.5),
                 ),
               ],
             ),
@@ -95,7 +95,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
             ),
             Column(
               children: [
-                Assets.svgs.towing.svg(),
+                Assets.images.towing.image(),
                 SizedBox(
                   height: SizeConfig.sW! * 3,
                 ),
@@ -105,7 +105,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       fontWeight: FontWeight.w400,
                       color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 3.5),
+                      fontSize: SizeConfig.sW! * 4.5),
                 ),
               ],
             ),
@@ -114,7 +114,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
             ),
             Column(
               children: [
-                Assets.svgs.consultation.svg(),
+                Assets.images.consultation.image(),
                 SizedBox(
                   height: SizeConfig.sW! * 3,
                 ),
@@ -124,7 +124,7 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                   style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       fontWeight: FontWeight.w400,
                       color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 3.5),
+                      fontSize: SizeConfig.sW! * 4.5),
                 ),
               ],
             ),

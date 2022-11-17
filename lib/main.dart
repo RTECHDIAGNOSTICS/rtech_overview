@@ -11,11 +11,13 @@ Future<void> main() async {
     statusBarColor: Colors.transparent,
   ));
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(RTech());
+  runApp(const RTech());
 }
 
 class RTech extends StatelessWidget {
   static String title = "RentalStop";
+
+  const RTech({super.key});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) => MultiProvider(

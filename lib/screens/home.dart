@@ -1,9 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+
 import 'package:rtech_overview/screens/services_desktop_tablet.dart';
 import 'package:rtech_overview/shared/utils/app_colors.dart';
+
 import '../gen/assets.gen.dart';
 import '../shared/components/nav_drawer/nav_drawer.dart';
 import '../shared/components/navbar/nav_bar_item.dart';
@@ -68,20 +73,55 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 
   bool hideDrawer = false;
+  List<Widget> sponsors = [];
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
+    sponsors = [
+      Assets.images.maxxforceImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.mackImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.cumminsImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.hinoImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.paccarImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.catImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.volvoImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+      Assets.images.detroitImg.image(
+        height: SizeConfig.sW! * 7,
+        width: SizeConfig.sW! * 7,
+      ),
+    ];
+
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
         backgroundColor: AppColors.white,
-        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
+        endDrawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? const NavigationDrawer()
             : null,
         appBar: sizingInformation.deviceScreenType == DeviceScreenType.mobile
             ? AppBar(
-              
                 centerTitle: true,
                 iconTheme: IconThemeData(
                     size: SizeConfig.sW! * 8, color: AppColors.black),
@@ -99,6 +139,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       "R Tech\nDiagnostics",
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
                             fontWeight: FontWeight.bold,
+                            height: 1,
                             fontSize: SizeConfig.sW! * 3.5,
                           ),
                     ),
@@ -205,6 +246,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       FadeInLeft(
                           duration: const Duration(milliseconds: 1500),
                           child: const MobileHomePage()),
+                      SponsorWidget(
+                        mobile: true,
+                        sponsors: sponsors,
+                        width: SizeConfig.sW! * 12,
+                      ),
                       FadeInRight(
                         duration: const Duration(milliseconds: 2500),
                         child: const MobileAboutScreen(),
@@ -216,7 +262,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         duration: const Duration(milliseconds: 2500),
                         child: const MobileServicesScreen(),
                       ),
-                      const FooterWidget(isMobile: true,),
+                      const FooterWidget(
+                        isMobile: true,
+                      ),
                     ],
                   ),
                 ),
@@ -228,6 +276,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       FadeInLeft(
                           duration: const Duration(milliseconds: 1500),
                           child: const HomePage()),
+                      SizedBox(
+                        height: SizeConfig.sW! * 5,
+                      ),
+                      SponsorWidget(
+                        sponsors: sponsors,
+                        width: SizeConfig.sW! * 20,
+                      ),
                       FadeInRight(
                         duration: const Duration(milliseconds: 2500),
                         child: const AboutScreen(),
@@ -248,6 +303,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     FadeInLeftBig(
                         duration: const Duration(milliseconds: 1500),
                         child: const HomePage()),
+                    SponsorWidget(
+                      sponsors: sponsors,
+                      width: SizeConfig.sW! * 12,
+                    ),
                     FadeInRightBig(
                       duration: const Duration(milliseconds: 2500),
                       child: const AboutScreen(),
@@ -269,100 +328,137 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 }
 
+class SponsorWidget extends StatelessWidget {
+  const SponsorWidget({
+    Key? key,
+    required this.sponsors,
+    required this.width, this.mobile = false,
+  }) : super(key: key);
+
+  final List<Widget> sponsors;
+  final double width;
+  final bool mobile;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: SizeConfig.sW! * 20,
+        child: ListView.separated(
+          itemCount: sponsors.length,
+          shrinkWrap: true,
+          padding: EdgeInsets.symmetric(
+            horizontal:mobile ?  SizeConfig.sW! * 8 : SizeConfig.sW! * 5,
+          ),
+          scrollDirection: Axis.horizontal,
+          itemBuilder: ((context, index) {
+            return SizedBox(
+                // height: SizeConfig.sW! * 10,
+                // width: width,
+                child: sponsors[index]);
+          }),
+          separatorBuilder: (context, index) => SizedBox(
+            width:mobile ?  SizeConfig.sW! * 12 :  SizeConfig.sW! * 8,
+          ),
+        ));
+  }
+}
+
 class FooterWidget extends StatelessWidget {
   const FooterWidget({
     Key? key,
-     this.isMobile = false,
+    this.isMobile = false,
   }) : super(key: key);
   final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
-    return isMobile ? Container(
-      padding: EdgeInsets.only(
-          top: SizeConfig.sW! * 5,
-          bottom: SizeConfig.sW! * 5,
-          right: SizeConfig.sW! * 5,
-          left: SizeConfig.sW! * 5),
-      color: Colors.black,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Assets.svgs.instagramSvg.svg(
-                height: SizeConfig.sW! * 3,
-                width: SizeConfig.sW! * 3,
-              ),
-              SizedBox(
-                width: SizeConfig.sW! * 2,
-              ),
-              Assets.svgs.twitterSvg.svg(
-                height: SizeConfig.sW! * 3,
-                width: SizeConfig.sW! * 3,
-              ),
-              SizedBox(
-                width: SizeConfig.sW! * 2,
-              ),
-              Assets.svgs.linkedInSvg.svg(
-                height: SizeConfig.sW! * 3,
-                width: SizeConfig.sW! * 3,
-              ),
-            ],
-          ),
-          Text(
-            'Copyrigh Rtech Diagonistics 2022',
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                  color: Colors.white,
-                  fontSize: SizeConfig.sW! * 2,
-                  fontWeight: FontWeight.w400,
+    return isMobile
+        ? Container(
+            padding: EdgeInsets.only(
+                top: SizeConfig.sW! * 5,
+                bottom: SizeConfig.sW! * 5,
+                right: SizeConfig.sW! * 5,
+                left: SizeConfig.sW! * 5),
+            color: Colors.black,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Assets.svgs.instagramSvg.svg(
+                      height: SizeConfig.sW! * 3,
+                      width: SizeConfig.sW! * 3,
+                    ),
+                    SizedBox(
+                      width: SizeConfig.sW! * 2,
+                    ),
+                    Assets.svgs.twitterSvg.svg(
+                      height: SizeConfig.sW! * 3,
+                      width: SizeConfig.sW! * 3,
+                    ),
+                    SizedBox(
+                      width: SizeConfig.sW! * 2,
+                    ),
+                    Assets.svgs.linkedInSvg.svg(
+                      height: SizeConfig.sW! * 3,
+                      width: SizeConfig.sW! * 3,
+                    ),
+                  ],
                 ),
-          ),
-        ],
-      ),
-    ) : Container(
-      padding: EdgeInsets.only(
-          top: SizeConfig.sW! * 3,
-          bottom: SizeConfig.sW! * 3,
-          right: SizeConfig.sW! * 5,
-          left: SizeConfig.sW! * 5),
-      color: Colors.black,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Assets.svgs.instagramSvg.svg(
-                height: SizeConfig.sW! * 1.8,
-                width: SizeConfig.sW! * 1.8,
-              ),
-              SizedBox(
-                width: SizeConfig.sW! * 1,
-              ),
-              Assets.svgs.twitterSvg.svg(
-                height: SizeConfig.sW! * 1.8,
-                width: SizeConfig.sW! * 1.8,
-              ),
-              SizedBox(
-                width: SizeConfig.sW! * 1,
-              ),
-              Assets.svgs.linkedInSvg.svg(
-                height: SizeConfig.sW! * 1.8,
-                width: SizeConfig.sW! * 1.8,
-              ),
-            ],
-          ),
-          Text(
-            'Copyrigh Rtech Diagonistics 2022',
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                  color: Colors.white,
-                  fontSize: SizeConfig.sW! * 1,
-                  fontWeight: FontWeight.w400,
+                Text(
+                  'Copyrigh Rtech Diagonistics 2022',
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        color: Colors.white,
+                        fontSize: SizeConfig.sW! * 2,
+                        fontWeight: FontWeight.w400,
+                      ),
                 ),
-          ),
-        ],
-      ),
-    );
+              ],
+            ),
+          )
+        : Container(
+            padding: EdgeInsets.only(
+                top: SizeConfig.sW! * 3,
+                bottom: SizeConfig.sW! * 3,
+                right: SizeConfig.sW! * 5,
+                left: SizeConfig.sW! * 5),
+            color: Colors.black,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Assets.svgs.instagramSvg.svg(
+                      height: SizeConfig.sW! * 1.8,
+                      width: SizeConfig.sW! * 1.8,
+                    ),
+                    SizedBox(
+                      width: SizeConfig.sW! * 1,
+                    ),
+                    Assets.svgs.twitterSvg.svg(
+                      height: SizeConfig.sW! * 1.8,
+                      width: SizeConfig.sW! * 1.8,
+                    ),
+                    SizedBox(
+                      width: SizeConfig.sW! * 1,
+                    ),
+                    Assets.svgs.linkedInSvg.svg(
+                      height: SizeConfig.sW! * 1.8,
+                      width: SizeConfig.sW! * 1.8,
+                    ),
+                  ],
+                ),
+                Text(
+                  'Copyrigh Rtech Diagonistics 2022',
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        color: Colors.white,
+                        fontSize: SizeConfig.sW! * 1,
+                        fontWeight: FontWeight.w400,
+                      ),
+                ),
+              ],
+            ),
+          );
   }
 }
 
@@ -432,7 +528,7 @@ class CtaWidget extends StatelessWidget {
                             'Join us',
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: SizeConfig.sW! * 2,
+                                fontSize: SizeConfig.sW! * 3,
                                 fontWeight: FontWeight.w700),
                           ),
                         ),

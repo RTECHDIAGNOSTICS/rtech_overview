@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable
+// ignore_for_file: unused_local_variable, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -58,7 +58,7 @@ class _AboutScreenState extends State<AboutScreen> {
                           children: [
                             Row(
                               children: [
-                                Assets.svgs.truckFix.svg(),
+                                Assets.images.truckFix.image(),
                                  SizedBox(
                                   width: SizeConfig.sW! * 2,
                                 ),
@@ -79,7 +79,7 @@ class _AboutScreenState extends State<AboutScreen> {
                              SizedBox(height: SizeConfig.sW! * 5,),
                             Row(
                               children: [
-                                Assets.svgs.truckPart.svg(),
+                                Assets.images.truckPart.image(),
                                  SizedBox(
                                   width: SizeConfig.sW! * 2,
                                 ),
@@ -109,7 +109,7 @@ class _AboutScreenState extends State<AboutScreen> {
                           children: [
                             Row(
                               children: [
-                                Assets.svgs.towing.svg(),
+                                Assets.images.towing.image(),
                                  SizedBox(
                                   width: SizeConfig.sW! * 2,
                                 ),
@@ -130,7 +130,7 @@ class _AboutScreenState extends State<AboutScreen> {
                              SizedBox(height: SizeConfig.sW! * 5,),
                             Row(
                               children: [
-                                Assets.svgs.consultation.svg(),
+                                Assets.images.consultation.image(),
                                  SizedBox(
                                   width: SizeConfig.sW! * 2,
                                 ),
