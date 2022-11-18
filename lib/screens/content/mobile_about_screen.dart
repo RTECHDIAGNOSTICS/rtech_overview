@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../gen/assets.gen.dart';
@@ -36,104 +37,255 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
           top: SizeConfig.sW! * 1,
           bottom: SizeConfig.sW! * 1,
           left: sizingInformation.isMobile
-              ? SizeConfig.sW! * 20
+              ? SizeConfig.sW! * 4
               : sizingInformation.isTablet
                   ? SizeConfig.sW! * 4
                   : SizeConfig.sW! * 8,
           right: sizingInformation.isMobile
-              ? SizeConfig.sW! * 20
+              ? SizeConfig.sW! * 4
               : sizingInformation.isTablet
                   ? SizeConfig.sW! * 4
                   : SizeConfig.sW! * 8,
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            
-            SizedBox(
-              height: SizeConfig.sW! * 8,
-            ),
-            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Assets.images.truckFix.image(),
-                SizedBox(
-                  height: SizeConfig.sW! * 3,
-                ),
                 Text(
-                  "Get a mechanic to fix your truck with ease.",
+                  "What you get",
+                  style: GoogleFonts.kanit(
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.primary,
+                      fontSize: SizeConfig.sW! * 5),
+                ),
+                SizedBox(
+                  height: SizeConfig.sW! * 2,
+                ),
+                RichText(
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 4.5),
+                  text: TextSpan(
+                    
+                      text: "O",
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.black,
+                          fontSize: SizeConfig.sW! * 8),
+                      children: [
+                        TextSpan(
+                          text:
+                              "ur number one priority is for us to get your truck back on the road as soon as possible and here is how we ensure that:",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.black,
+                                  fontSize: SizeConfig.sW! * 3.8),
+                        ),
+                      ]),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: SizeConfig.sW! * 8,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "1",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .copyWith(
+                                    height: 0,
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.no1Color,
+                                    fontSize: SizeConfig.sW! * 20),
+                          ),
+                          SizedBox(width: SizeConfig.sW! * 2),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Assets.images.truckFix.image(
+                                  height: SizeConfig.sW! * 10,
+                                  width: SizeConfig.sW! * 10,
+                                ),
+                                //  SizedBox(
+                                //   width: SizeConfig.sW! * 2,
+                                // ),
+                                Padding(
+                                  padding:  EdgeInsets.only(top: SizeConfig.sW! * 2,),
+                                  child: Text(
+                                    "Getting you connected to verified mechanic and repair shop that utilizes our diagnostics system or as a rtech certified repair workshop",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: AppColors.black,
+                                            fontSize: SizeConfig.sW! * 3.5),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: SizeConfig.sW! * 8,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "2",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  height: 0,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.no2Color,
+                                  fontSize: SizeConfig.sW! * 20),
+                        ),
+                        SizedBox(width: SizeConfig.sW! * 2),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Assets.images.towing.image(
+                                  height: SizeConfig.sW! * 10,
+                                  width: SizeConfig.sW! * 10,),
+                              //  
+                              // 
+                              Padding(
+                                  padding:  EdgeInsets.only(top: SizeConfig.sW! * 2,),
+                                child: Text(
+                                  "Getting your truck  off the road with Rtech's nationwide towing and wrecker network",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyText1!
+                                      .copyWith(
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.black,
+                                          fontSize: SizeConfig.sW! * 3.5),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: SizeConfig.sW! * 8,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "3",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  height: 0,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.no3Color,
+                                  fontSize: SizeConfig.sW! * 20),
+                        ),
+                        SizedBox(width: SizeConfig.sW! * 2),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Assets.images.truckPart.image(
+                                  height: SizeConfig.sW! * 10,
+                                  width: SizeConfig.sW! * 10,),
+                               SizedBox(
+                                height: SizeConfig.sW! * 2,
+                              ),
+                              Text(
+                                "Helping you locate truck part no matter where you are",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.black,
+                                        fontSize: SizeConfig.sW! * 3.5),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: SizeConfig.sW! * 8,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "4",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1!
+                              .copyWith(
+                                  height: 0,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.no4Color,
+                                  fontSize: SizeConfig.sW! * 20),
+                        ),
+                        SizedBox(width: SizeConfig.sW! * 2),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Assets.images.consultation.image(
+                                  height: SizeConfig.sW! * 10,
+                                  width: SizeConfig.sW! * 10,),
+                               SizedBox(
+                                height: SizeConfig.sW! * 2,
+                              ),
+                              Text(
+                                "Does your truck have a major issue?",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.black,
+                                        fontSize: SizeConfig.sW! * 3.5),
+                              ),
+                              Text(
+                                "Rtech has a repair (heavy) consultation helping and ensuring you have a second opinion and an estimate provided by our repair specialist, its just like having a mechanic on your team ",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.black,
+                                        fontSize: SizeConfig.sW! * 3.5),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
-            SizedBox(
-              height: SizeConfig.sW! * 8,
-            ),
-            Column(
-              children: [
-                Assets.images.truckPart.image(),
-                SizedBox(
-                  height: SizeConfig.sW! * 3,
-                ),
-                Text(
-                  "Get New and Used truck parts on our app.",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 4.5),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: SizeConfig.sW! * 8,
-            ),
-            Column(
-              children: [
-                Assets.images.towing.image(),
-                SizedBox(
-                  height: SizeConfig.sW! * 3,
-                ),
-                Text(
-                  "Initiate a tow to get your truck off the road.",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 4.5),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: SizeConfig.sW! * 8,
-            ),
-            Column(
-              children: [
-                Assets.images.consultation.image(),
-                SizedBox(
-                  height: SizeConfig.sW! * 3,
-                ),
-                Text(
-                  "Need professional advice? We are available 24/7.",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 4.5),
-                ),
-              ],
-            ),
-            
-            SizedBox(
-              height: SizeConfig.sW! * 8,
-            ),
-          ],
-        ),
       );
     });
   }
