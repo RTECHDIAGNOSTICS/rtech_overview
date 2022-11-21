@@ -26,7 +26,6 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/rTechLogoBlack.png');
   AssetGenImage get appstore => const AssetGenImage('assets/images/app store image.jpg');
   AssetGenImage get playstore => const AssetGenImage('assets/images/play store image.jpg');
-  AssetGenImage get newsletterImage => const AssetGenImage('assets/images/newsletter image.jpg');
   AssetGenImage get mackTruck => const AssetGenImage('assets/images/mack truck.jpg');
   AssetGenImage get ctaImage => const AssetGenImage('assets/images/cta image.png');
   AssetGenImage get ctaEllipse => const AssetGenImage('assets/images/cta Ellipse.png');
@@ -46,6 +45,7 @@ class $AssetsImagesGen {
   AssetGenImage get catImg => const AssetGenImage('assets/images/cat img.jpg');
   AssetGenImage get volvoImg => const AssetGenImage('assets/images/volvo img.jpg');
   AssetGenImage get detroitImg => const AssetGenImage('assets/images/detroit img.jpg');
+  AssetGenImage get BgMask => const AssetGenImage('assets/images/BG Mask.jpg');
   
   
   
@@ -61,6 +61,7 @@ class $AssetsSvgsGen {
   SvgGenImage get instagramSvg => const SvgGenImage('assets/svgs/instagram svg.svg');
   SvgGenImage get linkedInSvg => const SvgGenImage('assets/svgs/linkedIn svg.svg');
   SvgGenImage get twitterSvg => const SvgGenImage('assets/svgs/twitter svg.svg');
+  SvgGenImage get newsletterImage => const SvgGenImage('assets/svgs/newsletter image.svg');
   
   
 

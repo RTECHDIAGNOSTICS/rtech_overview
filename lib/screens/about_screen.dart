@@ -87,7 +87,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                 .copyWith(
                                     fontWeight: FontWeight.w400,
                                     color: AppColors.black,
-                                    fontSize: SizeConfig.sW! * 1.8),
+                                    fontSize: SizeConfig.sW! * 1.4),
                           ),
                         ]),
                   ),
@@ -138,7 +138,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                         .copyWith(
                                             fontWeight: FontWeight.w400,
                                             color: AppColors.black,
-                                            fontSize: SizeConfig.sW! * 1.8),
+                                            fontSize: SizeConfig.sW! * 1.4),
                                   ),
                                 ],
                               ),
@@ -188,7 +188,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                       .copyWith(
                                           fontWeight: FontWeight.w400,
                                           color: AppColors.black,
-                                          fontSize: SizeConfig.sW! * 1.8),
+                                          fontSize: SizeConfig.sW! * 1.4),
                                 ),
                               ],
                             ),
@@ -237,7 +237,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                       .copyWith(
                                           fontWeight: FontWeight.w400,
                                           color: AppColors.black,
-                                          fontSize: SizeConfig.sW! * 1.8),
+                                          fontSize: SizeConfig.sW! * 1.4),
                                 ),
                               ],
                             ),
@@ -286,7 +286,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                       .copyWith(
                                           fontWeight: FontWeight.w700,
                                           color: AppColors.black,
-                                          fontSize: SizeConfig.sW! * 1.8),
+                                          fontSize: SizeConfig.sW! * 1.4),
                                 ),
                                 Text(
                                   "Rtech has a repair (heavy) consultation helping and ensuring you have a second opinion and an estimate provided by our repair specialist, its just like having a mechanic on your team ",
@@ -296,7 +296,7 @@ class _AboutScreenState extends State<AboutScreen> {
                                       .copyWith(
                                           fontWeight: FontWeight.w400,
                                           color: AppColors.black,
-                                          fontSize: SizeConfig.sW! * 1.8),
+                                          fontSize: SizeConfig.sW! * 1.4),
                                 ),
                               ],
                             ),

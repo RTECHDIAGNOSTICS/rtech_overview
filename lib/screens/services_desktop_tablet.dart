@@ -19,17 +19,18 @@ class ServicesPageDesktopTab extends StatefulWidget {
 }
 
 class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
-
-  
   void _launchUrl(String urll) async {
-    final Uri url = Uri(scheme: 'https', path: urll, );
+    final Uri url = Uri(
+      scheme: 'https',
+      path: urll,
+    );
     if (await canLaunchUrl(url)) {
       await launchUrl(Uri.parse(urll));
     } else {
       log('Could not launch $url');
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -77,9 +78,14 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // SizedBox(
-                                //   height: SizeConfig.sH! * 10,
-                                // ),
+                                Text(
+                                  "100% flexible",
+                                  style: GoogleFonts.kanit(
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.primary,
+                                    fontSize: SizeConfig.sW! * 2.6,
+                                  ),
+                                ),
                                 const SizedBox(
                                   height: 20,
                                 ),
@@ -97,7 +103,7 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                                           .copyWith(
                                               fontWeight: FontWeight.w400,
                                               color: AppColors.black,
-                                              fontSize: SizeConfig.sW! * 1.7),
+                                              fontSize: SizeConfig.sW! * 1.6),
                                     ),
                                   ],
                                 ),
@@ -115,7 +121,7 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                                           .copyWith(
                                               fontWeight: FontWeight.w400,
                                               color: AppColors.black,
-                                              fontSize: SizeConfig.sW! * 1.7),
+                                              fontSize: SizeConfig.sW! * 1.6),
                                     ),
                                   ],
                                 ),
@@ -126,9 +132,10 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     InkWell(
-                                  onTap: () {
-                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
-                                  },
+                                      onTap: () {
+                                        _launchUrl(
+                                            "https://apps.apple.com/us/app/rtech/id6444051539");
+                                      },
                                       child: Assets.images.appstore.image(
                                         width: SizeConfig.sW! * 13,
                                       ),
@@ -137,9 +144,10 @@ class _ServicesPageDesktopTabState extends State<ServicesPageDesktopTab> {
                                       width: 15,
                                     ),
                                     InkWell(
-                                  onTap: () {
-                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
-                                  },
+                                      onTap: () {
+                                        _launchUrl(
+                                            "https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                      },
                                       child: Assets.images.playstore.image(
                                         width: SizeConfig.sW! * 13,
                                       ),
@@ -189,224 +197,245 @@ class NewLetterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isMobile
-        ? Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        ? Padding(
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.sW! * 4),
+          child: Stack(
+            
+            alignment: Alignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Assets.images.newsletterImage.image(
-                    height: SizeConfig.sW! * 15,
-                    width: SizeConfig.sW! * 15,
-                  ),
-                  SizedBox(
-                    width: SizeConfig.sW! * 1,
-                  ),
-                  Text(
-                    "Suscribe\nto our newsletter",
-                    style: GoogleFonts.kanit(
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.black,
-                        fontSize: SizeConfig.sW! * 4,
-                        height: 1),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: SizeConfig.sW! * 6,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: SizeConfig.sW! * 1.8,
-                  ),
-                  Row(
+              Assets.images.BgMask.image(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: SizeConfig.sW! * 6),
+                child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: Padding(
-                          padding:  EdgeInsets.only(left: SizeConfig.sW! * 15),
-                          child: TextFormField(
-                            validator: (val) {
-                              return null;
-                            },
-                            onChanged: (value) {},
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            keyboardType: TextInputType.text,
-                            decoration: InputDecoration(
-                              border: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              errorBorder: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              enabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedBorder: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              disabledBorder: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              focusedErrorBorder: const OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              hintText: "example@gmail.com",
-                              fillColor: AppColors.lightBg,
-                              constraints: BoxConstraints(
-                                minHeight: SizeConfig.sW! * 2.2,
-                                maxWidth: SizeConfig.sW! * 30,
-                              ),
-                              labelStyle: TextStyle(
-                                fontSize: SizeConfig.sW! * 1.2,
-                                color: AppColors.textLight,
-                              ),
-                              errorStyle: TextStyle(
-                                color: Colors.red,
-                                fontSize: SizeConfig.sW! * 1.2,
-                              ),
-                            ),
-                            style: TextStyle(
-                              fontSize: SizeConfig.sW! * 2,
-                              color: AppColors.grey,
-                            ),
-                            cursorColor: AppColors.black,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding:  EdgeInsets.only(right: SizeConfig.sW! * 15),
-                        height: SizeConfig.sW! * 7,
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: AppColors.primary,
-                            padding: EdgeInsets.symmetric(
-                                vertical: SizeConfig.sW! * 1.5,
-                                horizontal: SizeConfig.sW! * 1.5),
-                            shape: const RoundedRectangleBorder(
-                              side: BorderSide(color: Colors.white),
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: Text(
-                            'Subscribe',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.sW! * 2,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            ],
-          )
-        : Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Assets.images.newsletterImage.image(),
-              SizedBox(
-                width: SizeConfig.sW! * 6,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Suscribe to our newsletter",
-                    style: GoogleFonts.kanit(
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.black,
-                      fontSize: SizeConfig.sW! * 1.7,
-                    ),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.sW! * 1.2,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextFormField(
-                        validator: (val) {
-                          return null;
-                        },
-                        onChanged: (value) {},
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          errorBorder: const OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          enabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          focusedBorder: const OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          disabledBorder: const OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          focusedErrorBorder: const OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          hintText: "example@gmail.com",
-                          fillColor: AppColors.lightBg,
-                          constraints: BoxConstraints(
-                            minHeight: SizeConfig.sW! * 2.2,
-                            maxWidth: SizeConfig.sW! * 30,
-                          ),
-                          labelStyle: TextStyle(
-                            fontSize: SizeConfig.sW! * 1.2,
-                            color: AppColors.textLight,
-                          ),
-                          errorStyle: TextStyle(
-                            color: Colors.red,
-                            fontSize: SizeConfig.sW! * 1.2,
-                          ),
-                        ),
-                        style: TextStyle(
-                          fontSize: SizeConfig.sW! * 1.2,
-                          color: AppColors.grey,
-                        ),
-                        cursorColor: AppColors.black,
+                      Assets.svgs.newsletterImage.svg(
+                        height: SizeConfig.sW ! * 10,
+                        width: SizeConfig.sW ! * 10,
                       ),
                       SizedBox(
-                        height: SizeConfig.sW! * 5,
-                        child: TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: AppColors.primary,
-                            padding: EdgeInsets.symmetric(
-                                vertical: SizeConfig.sW! * 1.5,
-                                horizontal: SizeConfig.sW! * 1.5),
-                            shape: const RoundedRectangleBorder(
-                              side: BorderSide(color: Colors.white),
-                              borderRadius: BorderRadius.zero,
-                            ),
-                          ),
-                          child: Text(
-                            'Subscribe',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.sW! * 1.2,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
+                        width: SizeConfig.sW! * 6,
                       ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          
+                          Text(
+                                          "Join 2000+ more\npeople in the waitlist",
+                                          style: GoogleFonts.kanit(
+                                            height: 1.2,
+                                            fontWeight: FontWeight.w700,
+                                            color: AppColors.white,
+                                            fontSize: SizeConfig.sW! * 4,
+                                          ),
+                                        ),
+                          SizedBox(
+                            height: SizeConfig.sW! * 1.2,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: SizeConfig.sW! * 5,
+                                color:  AppColors.white,
+                                child: TextFormField(
+                                  validator: (val) {
+                                    return null;
+                                  },
+                                  
+                                  onChanged: (value) {},
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                                  keyboardType: TextInputType.text,
+                                  decoration: InputDecoration(
+                                    border: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    errorBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    enabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    focusedBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    disabledBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    focusedErrorBorder: const OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                    ),
+                                    hintText: "example@gmail.com",
+                                    fillColor: AppColors.white,
+                                    contentPadding: const EdgeInsets.only(left: 10),
+                                    constraints: BoxConstraints(
+                                      minHeight: SizeConfig.sW! * 2.2,
+                                      maxWidth: SizeConfig.sW! * 30,
+                                    ),
+                                    labelStyle: TextStyle(
+                                      fontSize: SizeConfig.sW! * 1.2,
+                                      color: AppColors.textLight,
+                                    ),
+                                    errorStyle: TextStyle(
+                                      color: Colors.red,
+                                      fontSize: SizeConfig.sW! * 1.2,
+                                    ),
+                                  ),
+                                  style: TextStyle(
+                                    fontSize: SizeConfig.sW! * 1.8,
+                                    color: AppColors.grey,
+                                  ),
+                                  cursorColor: AppColors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                height: SizeConfig.sW! * 5,
+                                child: TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: AppColors.black,
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: SizeConfig.sW! * 1.5,
+                                        horizontal: SizeConfig.sW! * 1.5),
+                                    shape: const RoundedRectangleBorder(
+                                      side: BorderSide(color: Colors.black, width: 0),
+                                      borderRadius: BorderRadius.zero,
+                                      
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Send',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: SizeConfig.sW! * 2.2,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
                     ],
                   ),
-                ],
-              )
+              ),
             ],
-          );
+          ),
+        )
+        : Stack(
+          alignment: Alignment.center,
+          children: [
+            Assets.images.BgMask.image(),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Assets.svgs.newsletterImage.svg(),
+                  SizedBox(
+                    width: SizeConfig.sW! * 6,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      
+                      Text(
+                                      "Join 2041 more people\nin the waitlist",
+                                      style: GoogleFonts.kanit(
+                                        height: 1.2,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.white,
+                                        fontSize: SizeConfig.sW! * 2.6,
+                                      ),
+                                    ),
+                      SizedBox(
+                        height: SizeConfig.sW! * 1.2,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: SizeConfig.sW! * 3,
+                            color:  AppColors.white,
+                            child: TextFormField(
+                              validator: (val) {
+                                return null;
+                              },
+                              
+                              onChanged: (value) {},
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                border: const OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                errorBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                enabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                disabledBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                focusedErrorBorder: const OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                hintText: "example@gmail.com",
+                                fillColor: AppColors.white,
+                                contentPadding: const EdgeInsets.only(left: 10),
+                                constraints: BoxConstraints(
+                                  minHeight: SizeConfig.sW! * 2.2,
+                                  maxWidth: SizeConfig.sW! * 30,
+                                ),
+                                labelStyle: TextStyle(
+                                  fontSize: SizeConfig.sW! * 1.2,
+                                  color: AppColors.textLight,
+                                ),
+                                errorStyle: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: SizeConfig.sW! * 1.2,
+                                ),
+                              ),
+                              style: TextStyle(
+                                fontSize: SizeConfig.sW! * 1.2,
+                                color: AppColors.grey,
+                              ),
+                              cursorColor: AppColors.black,
+                            ),
+                          ),
+                          SizedBox(
+                            height: SizeConfig.sW! * 3,
+                            child: TextButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                backgroundColor: AppColors.black,
+                                padding: EdgeInsets.symmetric(
+                                    vertical: SizeConfig.sW! * 1.5,
+                                    horizontal: SizeConfig.sW! * 1.5),
+                                shape: const RoundedRectangleBorder(
+                                  side: BorderSide(color: Colors.black, width: 0),
+                                  borderRadius: BorderRadius.zero,
+                                  
+                                ),
+                              ),
+                              child: Text(
+                                'Send',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: SizeConfig.sW! * 1.2,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+          ],
+        );
   }
 }

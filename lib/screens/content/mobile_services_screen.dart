@@ -3,6 +3,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -76,13 +77,26 @@ class _MobileServicesScreenState extends State<MobileServicesScreen> {
                       Assets.images.mackTruck.image(
                           height: SizeConfig.sW! * 60,
                           width: SizeConfig.sW! * 60),
+
+                          
                       
                       Padding(
-                        padding:  EdgeInsets.only(left: SizeConfig.sW! * 25),
+                        padding:  EdgeInsets.only(left: SizeConfig.sW! * 19),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: [ 
+                            Text(
+                                  "100% flexible",
+                                  style: GoogleFonts.kanit(
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.primary,
+                                    fontSize: SizeConfig.sW! * 4.2,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 8,
+                                ),
                             Row(
                               
                               children: [Assets.svgs.checkGreen.svg(

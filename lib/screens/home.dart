@@ -4,6 +4,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import 'package:rtech_overview/screens/services_desktop_tablet.dart';
@@ -375,8 +376,8 @@ class FooterWidget extends StatelessWidget {
     return isMobile
         ? Container(
             padding: EdgeInsets.only(
-                top: SizeConfig.sW! * 5,
-                bottom: SizeConfig.sW! * 5,
+                top: SizeConfig.sW! * 10,
+                bottom: SizeConfig.sW! * 10,
                 right: SizeConfig.sW! * 5,
                 left: SizeConfig.sW! * 5),
             color: Colors.black,
@@ -473,172 +474,128 @@ class CtaWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isMobile
-        ? Stack(
-            alignment: Alignment.topLeft,
+        ? Padding(
+          padding:  EdgeInsets.all(SizeConfig.sW! * 5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: SizeConfig.sW! * 50.4,
-                width: double.infinity,
-                // padding: EdgeInsets.all(SizeConfig.sW! * 6),
-                decoration: const BoxDecoration(
-                  color: AppColors.primary,
-                ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Transform.translate(
-                        offset: Offset(
-                          SizeConfig.sW! * 32,
-                          SizeConfig.sW! * 3,
-                        ),
-                        child: Assets.images.ctaEclispseMobile.image()),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Do you provide any\nof the above services ?",
-                          textAlign: TextAlign.center,
+               SizedBox(
+                height:  SizeConfig.sW! * 2,
+              ),
+              Text(
+                "Do you provide any\nof the above services ?",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.kanit(
+                        fontWeight: FontWeight.w700,
+                        height: 1,
+                        color: AppColors.primary,
+                        fontSize: SizeConfig.sW! * 5.5,),
+              ),
+               SizedBox(
+                height:  SizeConfig.sW! * 2,
+              ),
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: SizeConfig.sW! * 8),
+                child: Text(
+                          "We have a community of service providers where updates about our products and services  are shared and connections are made.",
+                  textAlign: TextAlign.center,
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!
                               .copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.white,
-                                  fontSize: SizeConfig.sW! * 3.5),
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.black,
+                                  fontSize: SizeConfig.sW! * 3.4),
                         ),
-                        SizedBox(
-                          height: SizeConfig.sW! * 3,
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            padding: EdgeInsets.symmetric(
-                                vertical: SizeConfig.sW! * 3,
-                                horizontal: SizeConfig.sW! * 3),
-                            shape: RoundedRectangleBorder(
-                              side: const BorderSide(color: Colors.white),
-                              borderRadius: BorderRadius.circular(
-                                10,
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            'Join us',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.sW! * 3,
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
               ),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Assets.images.ctaImageMobile.image(
-                      height: SizeConfig.sW! * 22.4,
-                    ),
+                      
+               SizedBox(
+                height:  SizeConfig.sW! *3,
+              ),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.sW! * 4,
+                      horizontal: SizeConfig.sW! * 4),
+                  shape: const RoundedRectangleBorder(
+                    side: BorderSide(color: AppColors.primary),
+                    
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Transform.translate(
-                        offset:
-                            Offset(SizeConfig.sW! * 1.2, SizeConfig.sW! * 0.4),
-                        child: Assets.images.ctaEclispse1Mobile.image(
-                          height: SizeConfig.sW! * 10,
-                        )),
-                  ),
-                ],
+                ),
+                child: Text(
+                  'Join us',
+                  style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: SizeConfig.sW! * 3.5,
+                      fontWeight: FontWeight.w700),
+                ),
               ),
             ],
-          )
-        : Stack(
-            alignment: Alignment.bottomCenter,
+          ),
+        )
+        : Container(
+          margin: EdgeInsets.symmetric(horizontal: SizeConfig.sW! * 10),
+          height: SizeConfig.sW! * 15.4,
+          // padding: EdgeInsets.all(SizeConfig.sW! * 6),
+          decoration: const BoxDecoration(
+            color: AppColors.white,
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                height: SizeConfig.sW! * 15.4,
-                // padding: EdgeInsets.all(SizeConfig.sW! * 6),
-                decoration: const BoxDecoration(
-                  color: AppColors.primary,
+              Expanded(
+                flex: 3,
+                child: Text(
+                  "Do you provide any\nof the above services ?",
+                  style: GoogleFonts.kanit(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.primary,
+                          fontSize: SizeConfig.sW! * 2.6,),
                 ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Transform.translate(
-                        offset: Offset(SizeConfig.sW! * 18, 0),
-                        child: Assets.images.ctaEllipse.image()),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Do you provide any of the above services ?",
+              ),
+              Expanded(
+                flex: 2,
+                child: Text(
+                          "We have a community of service providers where updates about our products and services  are shared and connections are made.",
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1!
                               .copyWith(
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColors.white,
-                                  fontSize: SizeConfig.sW! * 2.4),
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.black,
+                                  fontSize: SizeConfig.sW! * 1.4),
                         ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            padding: EdgeInsets.symmetric(
-                                vertical: SizeConfig.sW! * 1.5,
-                                horizontal: SizeConfig.sW! * 1.5),
-                            shape: RoundedRectangleBorder(
-                              side: const BorderSide(color: Colors.white),
-                              borderRadius: BorderRadius.circular(
-                                10,
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            'Join us',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: SizeConfig.sW! * 1.2,
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+              ),
+                      
+               SizedBox(
+                width:  SizeConfig.sW! * 10.4,
+              ),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.sW! * 2,
+                      horizontal: SizeConfig.sW! * 2),
+                  shape: const RoundedRectangleBorder(
+                    side: BorderSide(color: AppColors.primary),
+                    
+                  ),
+                ),
+                child: Text(
+                  'Join us',
+                  style: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: SizeConfig.sW! * 1.7,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Assets.images.ctaImage.image(
-                      height: SizeConfig.sW! * 12.4,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Transform.translate(
-                        offset:
-                            Offset(SizeConfig.sW! * 1.2, SizeConfig.sW! * 0.4),
-                        child: Assets.images.ctaEllipse1.image(
-                          height: SizeConfig.sW! * 7,
-                        )),
-                  ),
-                ],
-              ),
             ],
-          );
+          ),
+        );
   }
 }
