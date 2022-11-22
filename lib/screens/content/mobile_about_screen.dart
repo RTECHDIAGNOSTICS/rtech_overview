@@ -99,16 +99,19 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              "1",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .copyWith(
-                                      height: 0,
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.no1Color,
-                                      fontSize: SizeConfig.sW! * 20),
+                            Transform.translate(
+                              offset: Offset(0,SizeConfig.sW! * 1),
+                              child: Text(
+                                "1",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(
+                                        height: 0,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.no1Color,
+                                        fontSize: SizeConfig.sW! * 20),
+                              ),
                             ),
                             SizedBox(width: SizeConfig.sW! * 2),
                             Expanded(
@@ -148,16 +151,19 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "2",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    height: 0,
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.no2Color,
-                                    fontSize: SizeConfig.sW! * 20),
+                          Transform.translate(
+                              offset: Offset(0,SizeConfig.sW! * 3),
+                            child: Text(
+                              "2",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      height: 0,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.no2Color,
+                                      fontSize: SizeConfig.sW! * 20),
+                            ),
                           ),
                           SizedBox(width: SizeConfig.sW! * 2),
                           Expanded(
@@ -194,16 +200,19 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "3",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    height: 0,
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.no3Color,
-                                    fontSize: SizeConfig.sW! * 20),
+                          Transform.translate(
+                              offset: Offset(0,SizeConfig.sW! * 1),
+                            child: Text(
+                              "3",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      height: 0,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.no3Color,
+                                      fontSize: SizeConfig.sW! * 20),
+                            ),
                           ),
                           SizedBox(width: SizeConfig.sW! * 2),
                           Expanded(
@@ -238,16 +247,19 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "4",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    height: 0,
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.no4Color,
-                                    fontSize: SizeConfig.sW! * 20),
+                          Transform.translate(
+                              offset: Offset(0,SizeConfig.sW! * 8),
+                            child: Text(
+                              "4",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      height: 0,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.no4Color,
+                                      fontSize: SizeConfig.sW! * 20),
+                            ),
                           ),
                           SizedBox(width: SizeConfig.sW! * 2),
                           Expanded(

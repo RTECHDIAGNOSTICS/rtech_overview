@@ -8,7 +8,10 @@ import 'package:rtech_overview/gen/assets.gen.dart';
 import 'package:rtech_overview/shared/utils/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:flutter/scheduler.dart';
 import '../shared/utils/size_config.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,7 +20,30 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>  {
+
+  final animationsMap = {
+    'columnOnPageLoadAnimation': Animate(
+      // trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.linear,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: Offset(0, 36),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+  };
+
   void _launchUrl(String urll) async {
     final Uri url = Uri(scheme: 'https', path: urll, );
     if (await canLaunchUrl(url)) {
@@ -177,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
-                  ) // for tablet view
+                  )
                 : Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,

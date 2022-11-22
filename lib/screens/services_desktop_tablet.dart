@@ -298,7 +298,7 @@ class NewLetterSection extends StatelessWidget {
                                         vertical: SizeConfig.sW! * 1.5,
                                         horizontal: SizeConfig.sW! * 1.5),
                                     shape: const RoundedRectangleBorder(
-                                      side: BorderSide(color: Colors.black, width: 0),
+                                      side: BorderSide(color: Colors.transparent, width: 0),
                                       borderRadius: BorderRadius.zero,
                                       
                                     ),
@@ -415,7 +415,7 @@ class NewLetterSection extends StatelessWidget {
                                     vertical: SizeConfig.sW! * 1.5,
                                     horizontal: SizeConfig.sW! * 1.5),
                                 shape: const RoundedRectangleBorder(
-                                  side: BorderSide(color: Colors.black, width: 0),
+                                  side: BorderSide(color: Colors.transparent, width: 0),
                                   borderRadius: BorderRadius.zero,
                                   
                                 ),

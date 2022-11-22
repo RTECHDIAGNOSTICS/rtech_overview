@@ -4,6 +4,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_animate/animate.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -36,6 +38,24 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   final ScrollController mobileController = ScrollController();
   AnimationController? _drawerController;
   double drawerOffset = 0;
+
+  List<Effect<dynamic>>? effects =  [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 1000.ms,
+          begin: 0,
+          end: 1,
+          
+        ),
+        MoveEffect(
+          curve: Curves.linear,
+          delay: 0.ms,
+          duration: 1000.ms,
+          begin: Offset(0, 100),
+          end: Offset(0, 0),
+        ),
+      ];
 
   @override
   void initState() {
@@ -244,23 +264,23 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      FadeInLeft(
-                          duration: const Duration(milliseconds: 1500),
+                      Animate(
+                                 effects: effects,
                           child: const MobileHomePage()),
                       SponsorWidget(
                         mobile: true,
                         sponsors: sponsors,
                         width: SizeConfig.sW! * 12,
                       ),
-                      FadeInRight(
-                        duration: const Duration(milliseconds: 2500),
+                      Animate(
+                                 effects: effects,
                         child: const MobileAboutScreen(),
                       ),
                       const CtaWidget(
                         isMobile: true,
                       ),
-                      FadeInLeft(
-                        duration: const Duration(milliseconds: 2500),
+                      Animate(
+                                 effects: effects,
                         child: const MobileServicesScreen(),
                       ),
                       const FooterWidget(
@@ -269,13 +289,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
-                tablet: SizedBox(
-                  child: ListView(
-                    controller: pageController,
-                    scrollDirection: Axis.vertical,
+                tablet: SingleChildScrollView(
+                  child: Column(
+                    // controller: pageController,
+                    // scrollDirection: Axis.vertical,
                     children: [
-                      FadeInLeft(
-                          duration: const Duration(milliseconds: 1500),
+                      Animate(
+                                 effects: effects,
                           child: const HomePage()),
                       SizedBox(
                         height: SizeConfig.sW! * 5,
@@ -284,41 +304,44 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         sponsors: sponsors,
                         width: SizeConfig.sW! * 20,
                       ),
-                      FadeInRight(
-                        duration: const Duration(milliseconds: 2500),
+                      Animate(
+                                 effects: effects,
                         child: const AboutScreen(),
                       ),
                       const CtaWidget(),
-                      FadeInLeft(
-                        duration: const Duration(milliseconds: 2500),
+                      Animate(
+                                 effects: effects,
                         child: const ServicesPageDesktopTab(),
                       ),
                       const FooterWidget(),
                     ],
                   ),
                 ),
-                desktop: ListView(
-                  controller: pageController,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    FadeInLeftBig(
-                        duration: const Duration(milliseconds: 1500),
-                        child: const HomePage()),
-                    SponsorWidget(
-                      sponsors: sponsors,
-                      width: SizeConfig.sW! * 12,
-                    ),
-                    FadeInRightBig(
-                      duration: const Duration(milliseconds: 2500),
-                      child: const AboutScreen(),
-                    ),
-                    const CtaWidget(),
-                    FadeInLeftBig(
-                      duration: const Duration(milliseconds: 2500),
-                      child: const ServicesPageDesktopTab(),
-                    ),
-                    const FooterWidget(),
-                  ],
+                desktop: SingleChildScrollView(
+                  child: Column(
+                    // controller: pageController,
+                    // scrollDirection: Axis.vertical,
+                    children: [
+                      Animate(
+                        
+                                 effects: effects,
+                          child: const HomePage()),
+                      SponsorWidget(
+                        sponsors: sponsors,
+                        width: SizeConfig.sW! * 12,
+                      ),
+                      Animate(
+                                 effects: effects,
+                        child: const AboutScreen(),
+                      ),
+                      const CtaWidget(),
+                      Animate(
+                                 effects: effects,
+                        child: const ServicesPageDesktopTab(),
+                      ),
+                      const FooterWidget(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -342,8 +365,9 @@ class SponsorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        height: SizeConfig.sW! * 20,
+    return Container(
+      color: AppColors.appBarBG,
+        height: SizeConfig.sW! * 15,
         child: ListView.separated(
           itemCount: sponsors.length,
           shrinkWrap: true,

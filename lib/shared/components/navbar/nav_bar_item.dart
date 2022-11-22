@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rtech_overview/shared/utils/onHover.dart';
 import 'package:rtech_overview/shared/utils/size_config.dart';
 
 import '../../../gen/assets.gen.dart';
@@ -17,21 +18,26 @@ class NavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        TextButton(
+    return OnHover(
+      builder: (isHovered) {
+        return TextButton(
           onPressed: function!,
-          child: Text(
-            text!,
-            style: GoogleFonts.kanit(
-                  fontSize: SizeConfig.sW! * 1.8,
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w400,),
+          child: Row(
+            children: [
+              Text(
+                text!,
+                style: GoogleFonts.kanit(
+                      fontSize: SizeConfig.sW! * 1.8,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w400,),
+              ),
+               const SizedBox(width: 5,),
+        isHovered ?
+        Assets.svgs.arrow.svg() : const SizedBox(),
+            ],
           ),
-        ),
-        const SizedBox(width: 5,),
-        Assets.svgs.arrow.svg(),
-      ],
+        );
+      }
     );
   }
 }

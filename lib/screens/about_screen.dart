@@ -108,18 +108,21 @@ class _AboutScreenState extends State<AboutScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
-                              "1",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .copyWith(
-                                      height: 0,
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.no1Color,
-                                      fontSize: SizeConfig.sW! * 15),
+                            Transform.translate(
+                              offset: Offset(0,SizeConfig.sW! * 1),
+                              child: Text(
+                                "1",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText1!
+                                    .copyWith(
+                                        height: 0,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.no1Color,
+                                        fontSize: SizeConfig.sW! * 11),
+                              ),
                             ),
-                            SizedBox(width: SizeConfig.sW! * 0.5),
+                            SizedBox(width: SizeConfig.sW! * 0.8),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,9 +130,9 @@ class _AboutScreenState extends State<AboutScreen> {
                                   Assets.images.truckFix.image(
                                   height: SizeConfig.sW! * 5,
                                   width: SizeConfig.sW! * 5,),
-                                  //  SizedBox(
-                                  //   width: SizeConfig.sW! * 2,
-                                  // ),
+                                   SizedBox(
+                                    height: SizeConfig.sW! * 1,
+                                  ),
                                   Text(
                                     "Getting you connected to verified mechanic and repair shop that utilizes our diagnostics system or as a rtech certified repair workshop",
                                     style: Theme.of(context)
@@ -158,18 +161,22 @@ class _AboutScreenState extends State<AboutScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "2",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(
-                                    height: 0,
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.no2Color,
-                                    fontSize: SizeConfig.sW! * 15),
+                          Transform.translate(
+                            
+                              offset: Offset(0,SizeConfig.sW! * 1),
+                            child: Text(
+                              "2",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
+                                      height: 0,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.no2Color,
+                                      fontSize: SizeConfig.sW! * 11),
+                            ),
                           ),
-                          SizedBox(width: SizeConfig.sW! * 0.5),
+                          SizedBox(width: SizeConfig.sW! * 0.8),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,9 +184,10 @@ class _AboutScreenState extends State<AboutScreen> {
                                 Assets.images.towing.image(
                                   height: SizeConfig.sW! * 5,
                                   width: SizeConfig.sW! * 5,),
-                                //  SizedBox(
-                                //   width: SizeConfig.sW! * 2,
-                                // ),
+                               
+                            SizedBox(
+                                    height: SizeConfig.sW! * 1,
+                                  ),
                                 Text(
                                   "Getting your truck  off the road with Rtech's nationwide towing and wrecker network",
                                   style: Theme.of(context)
@@ -204,7 +212,7 @@ class _AboutScreenState extends State<AboutScreen> {
                         right: SizeConfig.sW! * 50,
                       ),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
@@ -216,9 +224,9 @@ class _AboutScreenState extends State<AboutScreen> {
                                     height: 0,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.no3Color,
-                                    fontSize: SizeConfig.sW! * 15),
+                                    fontSize: SizeConfig.sW! * 11),
                           ),
-                          SizedBox(width: SizeConfig.sW! * 0.5),
+                          SizedBox(width: SizeConfig.sW! * 0.8),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,9 +234,9 @@ class _AboutScreenState extends State<AboutScreen> {
                                 Assets.images.truckPart.image(
                                   height: SizeConfig.sW! * 5,
                                   width: SizeConfig.sW! * 5,),
-                                //  SizedBox(
-                                //   width: SizeConfig.sW! * 2,
-                                // ),
+                                SizedBox(
+                                    height: SizeConfig.sW! * 1,
+                                  ),
                                 Text(
                                   "Helping you locate truck part no matter where you are",
                                   style: Theme.of(context)
@@ -265,9 +273,9 @@ class _AboutScreenState extends State<AboutScreen> {
                                     height: 0,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.no4Color,
-                                    fontSize: SizeConfig.sW! * 15),
+                                    fontSize: SizeConfig.sW! * 11),
                           ),
-                          SizedBox(width: SizeConfig.sW! * 0.5),
+                          SizedBox(width: SizeConfig.sW! * 0.8),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -275,9 +283,9 @@ class _AboutScreenState extends State<AboutScreen> {
                                 Assets.images.consultation.image(
                                   height: SizeConfig.sW! * 5,
                                   width: SizeConfig.sW! * 5,),
-                                //  SizedBox(
-                                //   width: SizeConfig.sW! * 2,
-                                // ),
+                               SizedBox(
+                                    height: SizeConfig.sW! * 1,
+                                  ),
                                 Text(
                                   "Does your truck have a major issue?",
                                   style: Theme.of(context)
