@@ -65,22 +65,22 @@ class _MobileHomePageState extends State<MobileHomePage> {
                           height: SizeConfig.sH! * 10,
                         ),
                         Padding(
-                          padding:  EdgeInsets.only(left: SizeConfig.sW! * 12, right: SizeConfig.sW! * 12),
-                          child: RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                                text:
-                                    "The easiest\nand reliable way to get your ",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText1!
-                                    .copyWith(
-                                        height: 1.3,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: SizeConfig.sW! * 8),
-                                children: [
-                                  TextSpan(
-                                    text: "TRUCK ",
+                          padding:  EdgeInsets.only(left: SizeConfig.sW! * 6, right: SizeConfig.sW! * 6),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              
+                                 Transform.translate(
+                                  offset: Offset(SizeConfig.sW! * 16, SizeConfig.sW! * 4),
+                                  child: Assets.svgs.redCircle.svg(
+                                     height: SizeConfig.sW! * 15,
+                                      width: SizeConfig.sW! * 15,
+                                  )),
+                              RichText(
+                                textAlign: TextAlign.center,
+                                text: TextSpan(
+                                    text:
+                                        "The easiest\nand reliable way to\nget your ",
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyText1!
@@ -88,19 +88,31 @@ class _MobileHomePageState extends State<MobileHomePage> {
                                             height: 1.3,
                                             fontWeight: FontWeight.w700,
                                             fontSize: SizeConfig.sW! * 8),
-                                  ),
-                                  TextSpan(
-                                    text: "back on the road",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyText1!
-                                        .copyWith(
-                                            height: 1.3,
-                                            fontWeight: FontWeight.w700,
-                                            color: AppColors.black,
-                                            fontSize: SizeConfig.sW! * 8),
-                                  )
-                                ]),
+                                    children: [
+                                      TextSpan(
+                                        text: "TRUCK\n",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .copyWith(
+                                                height: 1.3,
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: SizeConfig.sW! * 8),
+                                      ),
+                                      TextSpan(
+                                        text: "back on the road",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText1!
+                                            .copyWith(
+                                                height: 1.3,
+                                                fontWeight: FontWeight.w700,
+                                                color: AppColors.black,
+                                                fontSize: SizeConfig.sW! * 8),
+                                      )
+                                    ]),
+                              ),
+                            ],
                           ),
                         ),
                         const SizedBox(
