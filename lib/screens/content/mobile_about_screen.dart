@@ -54,15 +54,15 @@ class _MobileAboutScreenState extends State<MobileAboutScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: SizeConfig.sW! * 5,
+                  ),
                   Text(
                     "What you get",
                     style: GoogleFonts.kanit(
                         fontWeight: FontWeight.w700,
                         color: AppColors.primary,
                         fontSize: SizeConfig.sW! * 5),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.sW! * 2,
                   ),
                   RichText(
                     textAlign: TextAlign.center,

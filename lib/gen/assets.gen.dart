@@ -62,6 +62,7 @@ class $AssetsSvgsGen {
   SvgGenImage get linkedInSvg => const SvgGenImage('assets/svgs/linkedIn svg.svg');
   SvgGenImage get twitterSvg => const SvgGenImage('assets/svgs/twitter svg.svg');
   SvgGenImage get newsletterImage => const SvgGenImage('assets/svgs/newsletter image.svg');
+  SvgGenImage get redCircle => const SvgGenImage('assets/svgs/redCircle.svg');
   
   
 

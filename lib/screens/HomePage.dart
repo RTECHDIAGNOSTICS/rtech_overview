@@ -12,7 +12,6 @@ import 'package:flutter/scheduler.dart';
 import '../shared/utils/size_config.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -20,32 +19,12 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>  {
-
-  final animationsMap = {
-    'columnOnPageLoadAnimation': Animate(
-      // trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0,
-          end: 1,
-        ),
-        MoveEffect(
-          curve: Curves.linear,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0, 36),
-          end: Offset(0, 0),
-        ),
-      ],
-    ),
-  };
-
+class _HomePageState extends State<HomePage> {
   void _launchUrl(String urll) async {
-    final Uri url = Uri(scheme: 'https', path: urll, );
+    final Uri url = Uri(
+      scheme: 'https',
+      path: urll,
+    );
     if (await canLaunchUrl(url)) {
       await launchUrl(Uri.parse(urll));
     } else {
@@ -100,41 +79,53 @@ class _HomePageState extends State<HomePage>  {
                             SizedBox(
                               height: SizeConfig.sH! * 10,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  text:
-                                      "The easiest\nand reliable way to get your ",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .copyWith(
-                                          height: 1.3,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: SizeConfig.sW! * 4),
-                                  children: [
-                                    TextSpan(
-                                      text: "TRUCK\n",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1!
-                                          .copyWith(
-                                              height: 1.3,
-                                              color: AppColors.black,
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: SizeConfig.sW! * 4),
-                                    ),
-                                    TextSpan(
-                                      text: "back on the road",
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Transform.translate(
+                                    offset: Offset(
+                                        SizeConfig.sW! * 2, SizeConfig.sW! * 2),
+                                    child: Assets.svgs.redCircle.svg(
+                                       height: SizeConfig.sW! * 8,
+                                      width: SizeConfig.sW! * 8,
+                                    )),
+                                RichText(
+                                  text: TextSpan(
+                                      text:
+                                          "The easiest\nand reliable way to get your ",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText1!
                                           .copyWith(
                                               height: 1.3,
                                               fontWeight: FontWeight.w700,
-                                              color: AppColors.black,
                                               fontSize: SizeConfig.sW! * 4),
-                                    )
-                                  ]),
+                                      children: [
+                                        TextSpan(
+                                          text: "TRUCK\n",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                  height: 1.3,
+                                                  color: AppColors.black,
+                                                  fontWeight: FontWeight.w700,
+                                                  fontSize: SizeConfig.sW! * 4),
+                                        ),
+                                        TextSpan(
+                                          text: "back on the road",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                  height: 1.3,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: AppColors.black,
+                                                  fontSize: SizeConfig.sW! * 4),
+                                        )
+                                      ]),
+                                ),
+                              ],
                             ),
                             const SizedBox(
                               height: 20,
@@ -157,7 +148,8 @@ class _HomePageState extends State<HomePage>  {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                    _launchUrl(
+                                        "https://apps.apple.com/us/app/rtech/id6444051539");
                                   },
                                   child: Assets.images.appstore.image(
                                     width: SizeConfig.sW! * 13,
@@ -168,7 +160,8 @@ class _HomePageState extends State<HomePage>  {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                    _launchUrl(
+                                        "https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
                                   },
                                   child: Assets.images.playstore.image(
                                     width: SizeConfig.sW! * 13,
@@ -215,41 +208,53 @@ class _HomePageState extends State<HomePage>  {
                             SizedBox(
                               height: SizeConfig.sH! * 10,
                             ),
-                            RichText(
-                              text: TextSpan(
-                                  text:
-                                      "The easiest\nand reliable way\nto get your ",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1!
-                                      .copyWith(
-                                          height: 1.3,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: SizeConfig.sW! * 4),
-                                  children: [
-                                    TextSpan(
-                                      text: "TRUCK\n",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyText1!
-                                          .copyWith(
-                                              height: 1.3,
-                                              color: AppColors.black,
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: SizeConfig.sW! * 4),
-                                    ),
-                                    TextSpan(
-                                      text: "back on the road",
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Transform.translate(
+                                    offset: Offset(
+                                        SizeConfig.sW! * 10, SizeConfig.sW! * 2),
+                                    child: Assets.svgs.redCircle.svg(
+                                      height: SizeConfig.sW! * 8,
+                                      width: SizeConfig.sW! * 8,
+                                    )),
+                                RichText(
+                                  text: TextSpan(
+                                      text:
+                                          "The easiest\nand reliable way\nto get your ",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText1!
                                           .copyWith(
                                               height: 1.3,
                                               fontWeight: FontWeight.w700,
-                                              color: AppColors.black,
                                               fontSize: SizeConfig.sW! * 4),
-                                    )
-                                  ]),
+                                      children: [
+                                        TextSpan(
+                                          text: "TRUCK\n",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                  height: 1.3,
+                                                  color: AppColors.black,
+                                                  fontWeight: FontWeight.w700,
+                                                  fontSize: SizeConfig.sW! * 4),
+                                        ),
+                                        TextSpan(
+                                          text: "back on the road",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyText1!
+                                              .copyWith(
+                                                  height: 1.3,
+                                                  fontWeight: FontWeight.w700,
+                                                  color: AppColors.black,
+                                                  fontSize: SizeConfig.sW! * 4),
+                                        )
+                                      ]),
+                                ),
+                              ],
                             ),
                             const SizedBox(
                               height: 20,
@@ -271,9 +276,9 @@ class _HomePageState extends State<HomePage>  {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 InkWell(
-                                  
                                   onTap: () {
-                                    _launchUrl("https://apps.apple.com/us/app/rtech/id6444051539");
+                                    _launchUrl(
+                                        "https://apps.apple.com/us/app/rtech/id6444051539");
                                   },
                                   child: Assets.images.appstore.image(
                                     width: SizeConfig.sW! * 13,
@@ -283,9 +288,9 @@ class _HomePageState extends State<HomePage>  {
                                   width: 15,
                                 ),
                                 InkWell(
-                                  
                                   onTap: () {
-                                    _launchUrl("https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
+                                    _launchUrl(
+                                        "https://play.google.com/store/apps/details?id=com.rtechdiagnostics.rtechUsers");
                                   },
                                   child: Assets.images.playstore.image(
                                     width: SizeConfig.sW! * 13,
